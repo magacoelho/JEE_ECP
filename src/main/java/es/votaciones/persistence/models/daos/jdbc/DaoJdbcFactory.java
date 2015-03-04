@@ -7,7 +7,6 @@ import java.sql.Statement;
 
 import org.apache.logging.log4j.LogManager;
 
-
 import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.daos.VotoDao;
@@ -49,7 +48,7 @@ public class DaoJdbcFactory extends DaoFactory{
 	            Statement statement = getConnection().createStatement();
 	            statement.executeUpdate(String.format(DROP_TABLE, Tema.TABLE));
 	            statement.executeUpdate(String.format(DROP_TABLE, Voto.TABLE));
-	            statement.executeUpdate(VotoJdbc.sqlToCreateTable());
+	            statement.executeUpdate(VotoDaoJdbc.sqlToCreateTable());
 	            statement.executeUpdate(TemaDaoJdbc.sqlToCreateTable());
 	        } catch (SQLException e) {
 	            LogManager.getLogger(DaoJdbcFactory.class).error("Drop tables: " + e.getMessage());
