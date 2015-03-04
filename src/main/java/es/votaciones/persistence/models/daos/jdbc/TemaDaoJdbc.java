@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 
 
+
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.entities.Tema;
 
@@ -32,11 +33,13 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 		}
 		 return null;
 	 }
+	 
+	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s) VALUES ('%s','%s')";
 	@Override
-	public void create(Tema entity) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void create(Tema tema) {
+		  this.updateSql(String.format(SQL_INSERT, Tema.TABLE, Tema.DESCRIPCION, Tema.PREGUNTA));
+		  tema.setId(this.autoId());
+		}
 
 	@Override
 	public Tema read(Integer id) {
