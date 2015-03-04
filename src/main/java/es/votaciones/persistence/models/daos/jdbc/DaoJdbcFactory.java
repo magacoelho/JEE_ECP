@@ -3,13 +3,16 @@ package es.votaciones.persistence.models.daos.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.apache.logging.log4j.LogManager;
 
-import es.art83.persistence.models.daos.jdbc.DaoJdbcFactory;
+
 import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.daos.VotoDao;
+import es.votaciones.persistence.models.entities.Tema;
+import es.votaciones.persistence.models.entities.Voto;
 
 public class DaoJdbcFactory extends DaoFactory{
 	 private static final String DRIVER = "com.mysql.jdbc.Driver";
@@ -38,6 +41,19 @@ public class DaoJdbcFactory extends DaoFactory{
 	                    "Problemas con la BD: " + e.getMessage());
 	        }
 	        return connection;
+	    }
+	    
+
+	    public static void dropAndCreateTables() {
+	        try {
+	            Statement statement = getConnection().createStatement();
+	            statement.executeUpdate(String.format(DROP_TABLE, Tema.TABLE));
+	            statement.executeUpdate(String.format(DROP_TABLE, Voto.TABLE));
+	            statement.executeUpdate(VotoJdbc.sqlToCreateTable());
+	            statement.executeUpdate(TemaDaoJdbc.sqlToCreateTable());
+	        } catch (SQLException e) {
+	            LogManager.getLogger(DaoJdbcFactory.class).error("Drop tables: " + e.getMessage());
+	        }
 	    }
 	    
 	@Override
