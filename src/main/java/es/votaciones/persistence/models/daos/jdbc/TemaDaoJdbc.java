@@ -61,7 +61,10 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 		List<Tema> lista = new ArrayList<Tema>();
 		ResultSet resultSet=this.query(String.format(SQL_SELECT_ALL, Tema.TABLE));
 		Tema tema = this.create(resultSet);
-		
+		while(resultSet!=null){
+			lista.add(tema);
+			tema= this.create(resultSet);
+		}
 		return lista;
 	}
 	
