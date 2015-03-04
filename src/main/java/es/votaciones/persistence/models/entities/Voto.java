@@ -7,7 +7,7 @@ import es.votaciones.persistence.models.utils.NivelEstudio;
 public class Voto implements Serializable {
 	public static final String TABLE = "voto";
     
-	
+	public static final String ID = "ID";
 	private Integer id;
 	
 	public static final String VALORACION = "valoracion";
