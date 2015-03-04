@@ -54,7 +54,7 @@ public abstract class GenericDaoJdbc<T, ID> implements GenericDao<T, ID> {
             this.log.error("Query SQL: ---" + SQL_SELECT_LAST_ID + "---");
             this.log.error(e.getMessage());
         }
-        return -1;
+        return -1; 
     }
 
 }
