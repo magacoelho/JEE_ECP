@@ -1,4 +1,4 @@
-package es.votaciones.persistence.models.dao;
+package es.votaciones.persistence.models.daos;
 
 import es.votaciones.persistence.models.entities.Voto;
 

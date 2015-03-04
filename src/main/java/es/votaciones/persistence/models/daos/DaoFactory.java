@@ -1,4 +1,4 @@
-package es.votaciones.persistence.models.dao;
+package es.votaciones.persistence.models.daos;
 
 
 public abstract class DaoFactory {
