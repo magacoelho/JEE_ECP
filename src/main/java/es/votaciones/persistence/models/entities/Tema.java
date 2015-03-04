@@ -3,10 +3,17 @@ package es.votaciones.persistence.models.entities;
 import java.util.List;
 
 public class Tema {
+	public static final String TABLE="tema";
 	
+	public static final String ID = "ID";
 	private Integer id;
+	
+	public static final String DESCRIPCION = "descripcion";
 	private String  descripcion;
+	
+	public static final String PREGUNTA = "pregunta";
 	private String pregunta;
+	
 	private List<Voto> votos;
 	
 	public Tema() {
