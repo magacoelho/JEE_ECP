@@ -1,9 +1,15 @@
 package es.votaciones.persistence.models.daos.jdbc;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+
+
 
 
 
@@ -12,6 +18,20 @@ import es.votaciones.persistence.models.entities.Tema;
 
 public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDao {
 	 private Logger log = LogManager.getLogger(TemaDaoJdbc.class);
+	 
+	
+	 private Tema create(ResultSet resultSet) {
+		  try {
+			if(resultSet!=null&& resultSet.next()){
+				Tema tema = new Tema(resultSet.getString(Tema.DESCRIPCION), resultSet.getString(Tema.PREGUNTA));
+				tema.setId(resultSet.getInt(Tema.ID));
+				return tema;
+			  }
+		} catch (SQLException e) {
+			 log.error("read: " + e.getMessage());
+		}
+		 return null;
+	 }
 	@Override
 	public void create(Tema entity) {
 		// TODO Auto-generated method stub
@@ -38,10 +58,14 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 
 	@Override
 	public List<Tema> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Tema> lista = new ArrayList<Tema>();
+		ResultSet resultSet=this.query(String.format(SQL_SELECT_ALL, Tema.TABLE));
+		Tema tema = this.create(resultSet);
+		
+		return lista;
 	}
 	
+
 	private static final String SQL_CREATE_TABLE ="CREATE TABLE %s (%s INT NOT NULL AUTO_INCREMENT, %s VARCHAR(255), "
             + "%s VARCHAR(255)";
 	
