@@ -3,6 +3,8 @@
 	<persistence-unit name="ProjectVotacion" transaction-type="RESOURCE_LOCAL" >
 	  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 	   <class>es.pruebas.miw.User1</class>
+	   <class>es.votaciones.persistence.models.entities.Tema</class>
+	    <class>es.votaciones.persistence.models.entities.Voto</class>
 	  <properties>
             <property name="eclipselink.ddl-generation" value="none" /> <!--drop-and-create-tables   none-->
             <property name="eclipselink.logging.level" value="INFO" /> <!-- OFF,WARNING,INFO,FINE,ALL -->

@@ -3,13 +3,14 @@ package es.votaciones.persistence.models.entities;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import es.votaciones.persistence.models.utils.NivelEstudio;
-
+@Entity
 public class Voto implements Serializable {
 	public static final String TABLE = "voto";
     

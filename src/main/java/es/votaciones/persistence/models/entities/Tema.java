@@ -1,10 +1,13 @@
 package es.votaciones.persistence.models.entities;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
-public class Tema {
+@Entity
+public class Tema implements Serializable{
 	public static final String TABLE="tema";
 	
 	public static final String ID = "ID";
