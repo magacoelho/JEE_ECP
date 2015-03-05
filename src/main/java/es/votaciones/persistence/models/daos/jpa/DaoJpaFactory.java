@@ -1,4 +1,4 @@
-package es.votaciones.persitence.daos.jpa;
+package es.votaciones.persistence.models.daos.jpa;
 
 import java.util.HashMap;
 import java.util.Map;
