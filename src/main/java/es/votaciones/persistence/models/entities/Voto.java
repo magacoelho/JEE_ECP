@@ -23,8 +23,6 @@ public class Voto implements Serializable {
 	public Voto() {
 		
 	}
-
-
 	public Voto(Integer valoracion, NivelEstudio nivelEstudio, Tema tema) {
 		super();
 		this.valoracion = valoracion;
