@@ -46,10 +46,7 @@ public class DaoJpaFactory extends DaoFactory {
 
 	@Override
 	public VotoDao getVotoDao() {
-		// TODO Auto-generated method stub
-		return new VotoDaoJpa();
+	  return new VotoDaoJpa();
 	}
-
-   
 
 }
