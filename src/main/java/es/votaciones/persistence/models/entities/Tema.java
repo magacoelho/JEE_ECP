@@ -2,16 +2,31 @@ package es.votaciones.persistence.models.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 public class Tema {
 	public static final String TABLE="tema";
 	
 	public static final String ID = "ID";
+	
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	public static final String DESCRIPCION = "descripcion";
+	
+
 	private String  descripcion;
 	
 	public static final String PREGUNTA = "pregunta";
+	
+	
 	private String pregunta;
 	
 	

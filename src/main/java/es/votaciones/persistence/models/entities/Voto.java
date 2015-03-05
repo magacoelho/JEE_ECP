@@ -2,21 +2,35 @@ package es.votaciones.persistence.models.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import es.votaciones.persistence.models.utils.NivelEstudio;
 
 public class Voto implements Serializable {
 	public static final String TABLE = "voto";
     
 	public static final String ID = "ID";
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	public static final String VALORACION = "valoracion";
+	
+	
 	private Integer valoracion;
 	
 	public static final String NIVEL_ESTUDIO = "nivelEstudio";
 	private NivelEstudio nivelEstudio;
 	
 	public static final String TEMA_ID = "tema_id";
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
 	private Tema tema;
 	
 	
