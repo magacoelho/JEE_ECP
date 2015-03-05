@@ -1,5 +1,11 @@
 package es.votaciones.persistence.models.daos.jpa.data;
 
+import java.util.Iterator;
+
+import es.votaciones.persistence.models.entities.Tema;
+
+
+
 public class TemaDaoJpaTestData {
 	
 	
@@ -7,9 +13,15 @@ public class TemaDaoJpaTestData {
 	   , {"COCINA","Receta Tortilla de patata con morcillas de Burgos"},{"OCIO","Limpieza de las playas en Alicante"}
 		,{"CIENCIA","Impacto del Bioelementos en el ecosistema"}};
 
-    public TemaDaoJpaTestData() {
-		// TODO Auto-generated constructor stub
-	}
+   
 
+    //Tema
+    private Iterator<Tema> temasIterator;
+
+    private Tema tema;
+
+    private int numTemas = 0;
+    
+    
 	
 }
