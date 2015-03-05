@@ -14,7 +14,6 @@ public class Tema {
 	public static final String PREGUNTA = "pregunta";
 	private String pregunta;
 	
-	private List<Voto> votos;
 	
 	public Tema() {
 	
@@ -50,18 +49,12 @@ public class Tema {
 		this.pregunta = pregunta;
 	}
 
-	public List<Voto> getVotos() {
-		return votos;
-	}
-
-	public void setVotos(List<Voto> votos) {
-		this.votos = votos;
-	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "Tema [id=" + id + ", descripcion=" + descripcion
-				+ ", pregunta=" + pregunta + ", votos=" + votos + "]";
+				+ ", pregunta=" + pregunta + "]";
 	}
 
 	@Override
