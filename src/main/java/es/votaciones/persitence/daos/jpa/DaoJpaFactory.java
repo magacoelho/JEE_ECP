@@ -41,14 +41,13 @@ public class DaoJpaFactory extends DaoFactory {
 
 	@Override
 	public TemaDao getTemaDao() {
-		// TODO Auto-generated method stub
-		return null;
+	return new TemaDaoJpa();
 	}
 
 	@Override
 	public VotoDao getVotoDao() {
 		// TODO Auto-generated method stub
-		return null;
+		return new VotoDaoJpa();
 	}
 
    
