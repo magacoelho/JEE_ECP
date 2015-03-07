@@ -3,6 +3,7 @@ package es.votaciones.persistence.models.daos.jpa.data;
 import java.util.Iterator;
 
 import es.votaciones.persistence.models.entities.Tema;
+import es.votaciones.utils.ArrayToListTransformer;
 
 
 
@@ -27,7 +28,16 @@ public class TemaDaoJpaTestData {
     	return "Tema --> "+ numTemas+" Tema :" +tema;
     }
     
+    public TemaDaoJpaTestData() {
+		temasIterator= ArrayToListTransformer.transform(TEMAS);
+		this.nextTema();
+		
+	}
     
+	private void nextTema() {
+		numTemas++;
+		tema= temasIterator.next();
+	}
     
 	
 }
