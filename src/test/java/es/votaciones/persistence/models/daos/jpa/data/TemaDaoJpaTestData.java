@@ -41,6 +41,8 @@ public class TemaDaoJpaTestData {
 		numTemas++;
 		tema= temasIterator.next();
 	}
-    
+    public Tema getTema(){
+    	return tema;
+    }
 	
 }
