@@ -31,7 +31,7 @@ public class Voto implements Serializable {
 	public static final String TEMA_ID = "tema_id";
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn 
 	private Tema tema;
 	
 	
