@@ -22,6 +22,12 @@ public class TemaDaoJpaTestData {
 
     private int numTemas = 0;
     
+    public String message(){
+    	
+    	return "Tema --> "+ numTemas+" Tema :" +tema;
+    }
+    
+    
     
 	
 }
