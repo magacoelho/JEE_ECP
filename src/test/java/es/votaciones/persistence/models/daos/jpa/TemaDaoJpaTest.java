@@ -1,7 +1,11 @@
 package es.votaciones.persistence.models.daos.jpa;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.constraints.AssertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,17 +34,19 @@ public class TemaDaoJpaTest {
 	 
 	 while(data.hasNextTema()){
 		 if(data.getTema()!=null){
-			 
-		 dao.create(data.getTema());
-		 temasData.add(data.getTema());
+			 System.out.println("!!!PIECE Id: " + data.getTema().getId() + ": "
+                     + data.getTema());
+			 dao.create(data.getTema());
+			 temasData.add(data.getTema());
 		 }
 		 data.nextTema();
 		 
 	 }
-	 
-	 
-	 
-	 
-	   
-   }
+	  List<Tema> temas = dao.findAll();
+	  for (Tema tema : temasData) {
+		  assertTrue(temas.contains(tema));
+		
+	  }
+	  assertTrue(temasData.size()==temas.size());
+	   }
 }
