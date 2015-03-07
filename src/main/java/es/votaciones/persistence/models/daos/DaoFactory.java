@@ -1,5 +1,9 @@
 package es.votaciones.persistence.models.daos;
 
+import es.votaciones.persistence.models.daos.jpa.DaoJpaFactory;
+
+
+
 
 public abstract class DaoFactory {
 	public static DaoFactory factory = null;
@@ -8,7 +12,9 @@ public abstract class DaoFactory {
         DaoFactory.factory = factory;
     }
     public static DaoFactory getFactory() {
-        assert factory != null;
+    	if (factory == null) {
+            factory = new DaoJpaFactory();
+        }
         return factory;
     }
     

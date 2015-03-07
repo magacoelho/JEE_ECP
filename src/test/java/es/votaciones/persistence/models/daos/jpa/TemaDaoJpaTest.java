@@ -18,11 +18,12 @@ import es.votaciones.persistence.models.entities.Tema;
 
 public class TemaDaoJpaTest {
 	
-	private TemaDao dao= DaoJpaFactory.getFactory().getTemaDao();
+	private TemaDao dao= null; 
 	private TemaDaoJpaTestData data;
 	
 	@Before
 	public void init(){
+		dao = DaoJpaFactory.getFactory().getTemaDao();
 		data= new TemaDaoJpaTestData();
 	  // aqui tendria que meter lo de borrar las tablas...
 	
