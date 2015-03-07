@@ -33,8 +33,11 @@ public class TemaDaoJpaTestData {
 		this.nextTema();
 		
 	}
-    
-	private void nextTema() {
+    public boolean hasNextTema(){
+    	return temasIterator.hasNext();
+    	
+    }
+  	public void nextTema() {
 		numTemas++;
 		tema= temasIterator.next();
 	}
