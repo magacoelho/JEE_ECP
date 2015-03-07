@@ -19,6 +19,9 @@ import javax.persistence.ManyToOne;
 import es.votaciones.persistence.models.utils.NivelEstudio;
 @Entity
 public class Voto implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
 	public static final String TABLE = "voto";
     
 	public static final String ID = "ID";
