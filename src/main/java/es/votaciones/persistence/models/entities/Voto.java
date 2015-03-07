@@ -4,10 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+
+
+
 
 import es.votaciones.persistence.models.utils.NivelEstudio;
 @Entity
@@ -26,12 +31,14 @@ public class Voto implements Serializable {
 	private Integer valoracion;
 	
 	public static final String NIVEL_ESTUDIO = "nivelEstudio";
+	
+	@Enumerated(EnumType.STRING)
 	private NivelEstudio nivelEstudio;
 	
 	public static final String TEMA_ID = "tema_id";
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn 
+	@ManyToOne
+    @JoinColumn(name="tema_id") 
 	private Tema tema;
 	
 	
