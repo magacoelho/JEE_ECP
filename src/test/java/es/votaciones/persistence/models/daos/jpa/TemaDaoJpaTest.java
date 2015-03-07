@@ -35,7 +35,7 @@ public class TemaDaoJpaTest {
 	 
 	 while(data.hasNextTema()){
 		 if(data.getTema()!=null){
-			 System.out.println("!!!PIECE Id: " + data.getTema().getId() + ": "
+			 System.out.println("!!!Tema Id: " + data.getTema().getId() + ": "
                      + data.getTema());
 			 dao.create(data.getTema());
 			 temasData.add(data.getTema());
