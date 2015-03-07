@@ -11,20 +11,14 @@ public class Tema implements Serializable{
 	public static final String TABLE="tema";
 	
 	public static final String ID = "ID";
-	
-	
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
 	public static final String DESCRIPCION = "descripcion";
-	
-
 	private String  descripcion;
 	
 	public static final String PREGUNTA = "pregunta";
-	
-	
 	private String pregunta;
 	
 	
@@ -62,8 +56,6 @@ public class Tema implements Serializable{
 		this.pregunta = pregunta;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Tema [id=" + id + ", descripcion=" + descripcion
@@ -88,30 +80,10 @@ public class Tema implements Serializable{
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		
 		Tema other = (Tema) obj;
-		if (descripcion == null) {
-			if (other.descripcion != null)
-				return false;
-		} else if (!descripcion.equals(other.descripcion))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (pregunta == null) {
-			if (other.pregunta != null)
-				return false;
-		} else if (!pregunta.equals(other.pregunta))
-			return false;
-		return true;
+		return this.getDescripcion().equals(other.getDescripcion())
+			&& this.getPregunta().equals(other.getPregunta());
+		
 	}
-
-	
-	
-	
-	
-
 }
