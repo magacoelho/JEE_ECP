@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 
 
 
+
 import es.votaciones.persistence.models.utils.NivelEstudio;
 @Entity
 public class Voto implements Serializable {
@@ -35,6 +36,9 @@ public class Voto implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private NivelEstudio nivelEstudio;
 	
+	public static final String IP = "ip";
+	private  String ip;
+	
 	public static final String TEMA_ID = "tema_id";
 	
 	@ManyToOne
@@ -45,12 +49,20 @@ public class Voto implements Serializable {
 	public Voto() {
 		
 	}
-	public Voto(Integer valoracion, NivelEstudio nivelEstudio, Tema tema) {
+	
+   
+
+
+
+	public Voto(Integer valoracion, NivelEstudio nivelEstudio, String ip,
+			Tema tema) {
 		super();
 		this.valoracion = valoracion;
 		this.nivelEstudio = nivelEstudio;
+		this.ip = ip;
 		this.tema = tema;
 	}
+
 
 
 	public Integer getId() {
@@ -82,6 +94,16 @@ public class Voto implements Serializable {
 		this.nivelEstudio = nivelEstudio;
 	}
 
+	
+	public String getIp() {
+		return ip;
+	}
+	
+	
+	
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 
 	public Tema getTema() {
 		return tema;
@@ -93,11 +115,16 @@ public class Voto implements Serializable {
 	}
 
 
+
+
+
 	@Override
 	public String toString() {
-		return "Voto [id=" + id + ", valoracion=" + valoracion
-				+ ", nivelEstudio=" + nivelEstudio + ", tema=" + tema + "]";
+		return "Voto [valoracion=" + valoracion + ", nivelEstudio="
+				+ nivelEstudio + ", ip=" + ip + ", tema=" + tema + "]";
 	}
+
+
 	
 	
 }
