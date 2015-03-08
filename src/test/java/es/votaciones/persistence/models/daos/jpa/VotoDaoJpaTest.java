@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.daos.VotoDao;
@@ -25,7 +26,7 @@ public class VotoDaoJpaTest {
 	   dataTema= new TemaDaoJpaTestData();
 	   DaoJpaFactory.dropAndCreateTables();
  }
-   
+   @Test
    public void createTest(){
 	  
 	   

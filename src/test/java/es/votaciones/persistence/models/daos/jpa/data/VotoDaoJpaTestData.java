@@ -1,24 +1,44 @@
 package es.votaciones.persistence.models.daos.jpa.data;
 
+import java.util.Iterator;
+
 import es.votaciones.persistence.models.entities.Voto;
+import es.votaciones.utils.ArrayToListTransformer;
 
 public class VotoDaoJpaTestData {
-	public static final String [][] VOTOS ={{"8","192.123.4.5" , "NivelEstudio.PRIMARIA"},
-											{"5","192.123.4.5" , "NivelEstudio.BACHILLERATO"},
-											{"1","192.123.4.5" , "NivelEstudio.PRIMARIA"},
-											{"10","192.123.4.5" , "NivelEstudio.PRIMARIA"},
-											{"3","192.123.4.5" , "NivelEstudio.BACHILLERATO"},
-											{"6","192.123.4.5" , "NivelEstudio.UNIVERSIDAD"}};
-											
-	public boolean hasNextVoto() {
-		// TODO Auto-generated method stub
-		return false;
+	public static final String [][] VOTOS ={{"8","NivelEstudio.PRIMARIA", "192.123.4.5" },
+											{"5", "NivelEstudio.BACHILLERATO","192.123.4.5"},
+											{"1", "NivelEstudio.PRIMARIA", "192.123.4.5"},
+											{"10","NivelEstudio.PRIMARIA", "192.123.4.5"},
+											{"3", "NivelEstudio.BACHILLERATO", "192.123.4.5"},
+											{"6", "NivelEstudio.UNIVERSIDAD", "192.123.4.5" }};
+	
+	//Voto
+	private Iterator<Voto> votosIterator;
+	private Voto voto;
+	
+	int numVotos=0;
+	public VotoDaoJpaTestData() {
+		votosIterator= ArrayToListTransformer.transformVoto(VOTOS);
+		this.nextVoto();
 	}
-
+	
+	public String mensaje(){
+		return "Tema --> "+ numVotos+" Voto :" +voto;
+	}
+	
+	public boolean hasNextVoto() {
+    	return votosIterator.hasNext();
+	}
+   
+	public void nextVoto(){
+	   numVotos++;
+	   votosIterator.next();
+	   
+   }
 	
 	public Voto getVoto() {
-		// TODO Auto-generated method stub
-		return null;
+		return voto;
 	}
 
 }
