@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.daos.jpa.data.TemaDaoJpaTestData;
 import es.votaciones.persistence.models.entities.Tema;
@@ -16,17 +17,16 @@ import es.votaciones.persistence.models.entities.Tema;
 
 public class TemaDaoJpaTest {
 	
-	private TemaDao dao= null; 
+	private TemaDao dao= DaoJpaFactory.getFactory().getTemaDao(); 
 	private TemaDaoJpaTestData data;
 	
 	@Before
 	public void init(){
-		dao = DaoJpaFactory.getFactory().getTemaDao();
+
 		data= new TemaDaoJpaTestData();
-	  // aqui tendria que meter lo de borrar las tablas...
-	
+		DaoJpaFactory.dropAndCreateTables();
+	  // aqui tendria que meter lo de borrar las tablas??...
 	}
-	
    @Test
    public void testCreate(){
 	 List<Tema>  temasData= new ArrayList<Tema> ();
@@ -39,7 +39,6 @@ public class TemaDaoJpaTest {
 			 temasData.add(data.getTema());
 		 }
 		 data.nextTema();
-		 
 	 }
 	  List<Tema> temas = dao.findAll();
 	  for (Tema tema : temasData) {
