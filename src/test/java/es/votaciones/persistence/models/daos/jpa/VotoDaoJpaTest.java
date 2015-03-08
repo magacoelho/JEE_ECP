@@ -10,6 +10,7 @@ import es.votaciones.persistence.models.daos.VotoDao;
 import es.votaciones.persistence.models.daos.jpa.data.TemaDaoJpaTestData;
 import es.votaciones.persistence.models.daos.jpa.data.VotoDaoJpaTestData;
 import es.votaciones.persistence.models.entities.Tema;
+import es.votaciones.persistence.models.entities.Voto;
 
 public class VotoDaoJpaTest {
    private VotoDao dao=DaoJpaFactory.getFactory().getVotoDao();
@@ -22,9 +23,15 @@ public class VotoDaoJpaTest {
 	   
 	   data = new VotoDaoJpaTestData();
 	   dataTema= new TemaDaoJpaTestData();
+	   DaoJpaFactory.dropAndCreateTables();
  }
    
    public void createTest(){
+	  
+	   
+	   
+	   
+	   
 	   //crear Temas
 	   List<Tema>  temasData= new ArrayList<Tema> ();
 		 
@@ -38,6 +45,19 @@ public class VotoDaoJpaTest {
 			 dataTema.nextTema();
 		 }
 	   // crear Voto..
+        List<Voto>  votos= new ArrayList<Voto> ();
+		 int i=0;
+		 while(data.hasNextVoto()){
+			 if(data.getVoto()!=null){
+				 i++;
+				 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": "
+	                     + data.getVoto());
+				 data.getVoto().setTema(daoTema.read(i));
+				 dao.create(data.getVoto());
+				 votos.add(data.getVoto());
+			 }
+			 dataTema.nextTema();
+		 }
 		 
 		 
 	   //aosciarlos con temas...
