@@ -1,18 +1,40 @@
 package es.votaciones.persistence.models.daos.jdbc;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.daos.VotoDao;
 import es.votaciones.persistence.models.entities.Tema;
 import es.votaciones.persistence.models.entities.Voto;
+import es.votaciones.persistence.models.utils.NivelEstudio;
 
 public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDao{
 
-	
+	private Logger log = LogManager.getLogger(VotoDaoJdbc.class);
 	public Voto create(ResultSet resultSet) {
-		// TODO Auto-generated method stub
+		Voto voto;
+		Tema tema; 
+		try {
+			if(resultSet!=null&&resultSet.next()){
+			  Integer temaid= resultSet.getInt(Voto.TEMA_ID);
+			  if(temaid>0){
+				  tema= DaoFactory.getFactory().getTemaDao().read(temaid);
+			  }
+			  
+			 // voto= new Voto(resultSet.getInt(Voto.VALORACION), NivelEstudio(resultSet.getString(Voto.NIVEL_ESTUDIO)),resultSet.getString(Voto.IP), tema);	
+				
+				
+				
+			}
+		} catch (SQLException e) {
+			log.error("read: " + e.getMessage());
+		}
 		return null;
 	}
 
