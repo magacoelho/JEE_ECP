@@ -66,11 +66,8 @@ public class TemaDaoJpaTest {
 		
 	}
    
-	   
-   }
-   
-   
-  @Test
+ }
+   @Test
    public void testUpdate(){
 	  Tema t= temasData.get(0);
 	  t.setPregunta("Nueva pregunta");
@@ -89,8 +86,6 @@ public class TemaDaoJpaTest {
    public void  findAll(){
 	  assertTrue(dao.findAll().equals(temasData)); 
 	}
-	   
-   
    @After
    public  void finalizar(){
 	   
@@ -99,4 +94,9 @@ public class TemaDaoJpaTest {
 		  }
    }
    
+   @AfterClass
+   public static void eliminar(){
+	   DaoJpaFactory.dropAndCreateTables();
+   }
+  
 }
