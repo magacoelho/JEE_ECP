@@ -29,14 +29,11 @@ public class TemaDaoJpaTest {
 		DaoJpaFactory.dropAndCreateTables();
 		DaoJpaFactory.setFactory(new DaoJpaFactory());
    }
-	
-	
-	
+
 	@Before
 	public void init(){
 
 		data= new TemaDaoJpaTestData();
-	  // aqui tendria que meter lo de borrar las tablas??...
 	}
    @Test
    public void testCreate(){
@@ -58,4 +55,29 @@ public class TemaDaoJpaTest {
 	  }
 	  assertTrue(temasData.size()==temas.size());
 	   }
+   
+   @Test
+   public void testRead(){
+   
+	   
+   }
+   
+   
+  @Test
+    public void testUpdate(){
+	  
+	  
+  }
+  @Test
+   public void testDeleteById(){
+	  
+	  
+	  
+  }
+
+   @Test
+   public void  findAll(){
+	   
+   }
+   
 }
