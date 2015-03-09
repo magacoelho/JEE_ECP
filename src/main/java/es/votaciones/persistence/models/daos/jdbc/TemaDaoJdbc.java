@@ -8,14 +8,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-
-
-
-
-
-
-import es.art83.persistence.models.entities.Category;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.entities.Tema;
 
@@ -47,13 +39,13 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 	public Tema read(Integer id) {
 		 ResultSet resultSet = this.query(String.format(SQL_SELECT_ID, Tema.TABLE, id));
 	    return this.create(resultSet);
-	
 	}
-
+	
+	private static final String SQL_UPDATE = "UPDATE %s SET %s='%s', %s='%s' WHERE ID=%d";
 	@Override
-	public void update(Tema entity) {
-		// TODO Auto-generated method stub
-		
+	public void update(Tema tema) {
+		this.updateSql(String.format(SQL_UPDATE, Tema.TABLE, Tema.DESCRIPCION, tema.getDescripcion(),
+				Tema.PREGUNTA, tema.getPregunta(), Tema.ID, tema.getId()));
 	}
 
 	@Override
