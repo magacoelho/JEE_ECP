@@ -26,7 +26,7 @@ public class VotoDaoJpaTest {
 	   dataTema= new TemaDaoJpaTestData();
 	   
  }
-   @Test
+  // @Test
    public void createTest(){
 	  
 		   //crear Temas

@@ -1,10 +1,13 @@
 package es.votaciones.persistence.models.daos.jpa;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -42,8 +45,8 @@ public class TemaDaoJpaTest {
 						+ data.getTema());
 				dao.create(data.getTema());
 				temasData.add(data.getTema());
+				data.nextTema();
 			}
-			data.nextTema();
 		}
 	}
    @Test
@@ -70,14 +73,23 @@ public class TemaDaoJpaTest {
   }
   @Test
    public void testDeleteById(){
-	  
-	  
-	  
+	  Tema tem= temasData.get(0);
+	  dao.deleteById(tem.getId());
+	  assertNull(dao.read(tem.getId()));
   }
 
    @Test
    public void  findAll(){
 	   
+	}
+	   
+   
+   @After
+   public  void finalizar(){
+	   
+	   for (Tema tema : temasData) {
+			  dao.deleteById(tema.getId());
+		  }
    }
    
 }
