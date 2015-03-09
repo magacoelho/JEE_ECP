@@ -50,8 +50,7 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.updateSql(String.format(SQL_DELETE_ID, Tema.TABLE, id));
 	}
 
 	@Override
