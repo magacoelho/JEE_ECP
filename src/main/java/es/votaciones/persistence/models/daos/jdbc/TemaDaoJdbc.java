@@ -14,6 +14,8 @@ import org.apache.logging.log4j.Logger;
 
 
 
+
+import es.art83.persistence.models.entities.Category;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.entities.Tema;
 
@@ -43,8 +45,9 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 
 	@Override
 	public Tema read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		 ResultSet resultSet = this.query(String.format(SQL_SELECT_ID, Tema.TABLE, id));
+	    return this.create(resultSet);
+	
 	}
 
 	@Override
