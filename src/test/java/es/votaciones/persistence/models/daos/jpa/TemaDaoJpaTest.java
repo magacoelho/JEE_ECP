@@ -68,7 +68,10 @@ public class TemaDaoJpaTest {
    
   @Test
    public void testUpdate(){
-	  
+	  Tema t= temasData.get(0);
+	  t.setPregunta("Nueva pregunta");
+	  dao.update(t);
+	  assertTrue(t.getPregunta().equals(dao.read(t.getId()).getPregunta()));
 	  
   }
   @Test
