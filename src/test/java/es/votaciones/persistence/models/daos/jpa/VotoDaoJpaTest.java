@@ -21,19 +21,15 @@ public class VotoDaoJpaTest {
    private TemaDaoJpaTestData dataTema;
    @Before
    public void init(){
-	   
+	   DaoJpaFactory.dropAndCreateTables();
 	   data = new VotoDaoJpaTestData();
 	   dataTema= new TemaDaoJpaTestData();
-	   DaoJpaFactory.dropAndCreateTables();
+	   
  }
    @Test
    public void createTest(){
 	  
-	   
-	   
-	   
-	   
-	   //crear Temas
+		   //crear Temas
 	   List<Tema>  temasData= new ArrayList<Tema> ();
 		 
 		 while(dataTema.hasNextTema()){
@@ -50,14 +46,15 @@ public class VotoDaoJpaTest {
 		 int i=0;
 		 while(data.hasNextVoto()){
 			 if(data.getVoto()!=null){
+				if(i==3)
+					i=0;
 				 i++;
-				 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": "
-	                     + data.getVoto());
+				 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": " + data.getVoto());
 				 data.getVoto().setTema(daoTema.read(i));
 				 dao.create(data.getVoto());
 				 votos.add(data.getVoto());
 			 }
-			 dataTema.nextTema();
+			 data.nextVoto();
 		 }
 		 
 		 

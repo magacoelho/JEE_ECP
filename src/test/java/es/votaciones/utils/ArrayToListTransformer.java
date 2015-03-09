@@ -26,7 +26,7 @@ public class ArrayToListTransformer {
         for (int i = 0; i < arrayAtributos.length; i++) {
         	Voto voto = null;
         	if(arrayAtributos!=null){
-        		voto= new Voto(Integer.getInteger(arrayAtributos[i][0]),NivelEstudio.BACHILLERATO, arrayAtributos[i][2], null);
+        		voto= new Voto(Integer.parseInt(arrayAtributos[i][0]),NivelEstudio.BACHILLERATO, arrayAtributos[i][2], null);
         	}
             result.add(voto);
         }
