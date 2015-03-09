@@ -87,7 +87,7 @@ public class TemaDaoJpaTest {
 
    @Test
    public void  findAll(){
-	   
+	  assertTrue(dao.findAll().equals(temasData)); 
 	}
 	   
    
