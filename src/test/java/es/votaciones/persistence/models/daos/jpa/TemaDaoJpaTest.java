@@ -61,6 +61,10 @@ public class TemaDaoJpaTest {
    
    @Test
    public void testRead(){
+	   for (Tema tema : temasData) {
+		   assertTrue(dao.read(tema.getId()).equals(tema));
+		
+	}
    
 	   
    }
