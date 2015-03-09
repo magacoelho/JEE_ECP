@@ -10,10 +10,9 @@ public abstract class DaoFactory {
         DaoFactory.factory = factory;
     }
     public static DaoFactory getFactory() {
-    	if (factory == null) {
-            factory = new DaoJpaFactory();
-        }
-        return factory;
+    	   assert factory != null;
+           return factory;
+       
     }
     
     public abstract TemaDao getTemaDao();

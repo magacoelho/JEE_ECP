@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import es.votaciones.persistence.models.daos.DaoFactory;
@@ -19,12 +20,22 @@ public class TemaDaoJpaTest {
 	
 	private TemaDao dao= DaoJpaFactory.getFactory().getTemaDao(); 
 	private TemaDaoJpaTestData data;
+	//"BeforeClass -.--- inyectar el DaoJpaFactory... e invocar a dropandcreatetables-----
+	//en AfterClass deberiamos eliminar el 
+	
+	@BeforeClass
+	public static void arranque(){
+		
+		DaoJpaFactory.dropAndCreateTables();
+		DaoJpaFactory.setFactory(new DaoJpaFactory());
+   }
+	
+	
 	
 	@Before
 	public void init(){
 
 		data= new TemaDaoJpaTestData();
-		DaoJpaFactory.dropAndCreateTables();
 	  // aqui tendria que meter lo de borrar las tablas??...
 	}
    @Test
