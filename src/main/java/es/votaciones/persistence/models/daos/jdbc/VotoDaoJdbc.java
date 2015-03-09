@@ -8,7 +8,7 @@ import es.votaciones.persistence.models.entities.Voto;
 public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDao{
 
 	@Override
-	public void create(Voto entity) {
+	public void create(Voto voto) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -20,7 +20,7 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 	}
 
 	@Override
-	public void update(Voto entity) {
+	public void update(Voto voto) {
 		// TODO Auto-generated method stub
 		
 	}
