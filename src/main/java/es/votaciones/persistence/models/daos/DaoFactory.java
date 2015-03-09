@@ -1,7 +1,5 @@
 package es.votaciones.persistence.models.daos;
-
 import es.votaciones.persistence.models.daos.jpa.DaoJpaFactory;
-
 
 
 

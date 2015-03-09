@@ -18,12 +18,13 @@ public class VotoDaoJpaTestData {
 	private Voto voto;
 	
 	int numVotos=0;
+	
 	public VotoDaoJpaTestData() {
 		votosIterator= ArrayToListTransformer.transformVoto(VOTOS);
 		this.nextVoto();
 	}
 	
-	public String mensaje(){
+	public String message(){
 		return "Tema --> "+ numVotos+" Voto :" +voto;
 	}
 	
@@ -33,7 +34,7 @@ public class VotoDaoJpaTestData {
    
 	public void nextVoto(){
 	   numVotos++;
-	   votosIterator.next();
+	  voto= votosIterator.next();
 	   
    }
 	
