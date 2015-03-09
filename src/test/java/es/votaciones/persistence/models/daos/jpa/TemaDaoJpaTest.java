@@ -20,9 +20,8 @@ public class TemaDaoJpaTest {
 	
 	private TemaDao dao= DaoJpaFactory.getFactory().getTemaDao(); 
 	private TemaDaoJpaTestData data;
-	//"BeforeClass -.--- inyectar el DaoJpaFactory... e invocar a dropandcreatetables-----
-	//en AfterClass deberiamos eliminar el 
-	
+	private List<Tema>  temasData;
+		
 	@BeforeClass
 	public static void arranque(){
 		
@@ -35,24 +34,24 @@ public class TemaDaoJpaTest {
 	public void init(){
 
 		data= new TemaDaoJpaTestData();
+		temasData= new ArrayList<Tema> ();
+		
+		while(data.hasNextTema()){
+			if(data.getTema()!=null){
+				System.out.println("!!!Tema Id: " + data.getTema().getId() + ": "
+						+ data.getTema());
+				dao.create(data.getTema());
+				temasData.add(data.getTema());
+			}
+			data.nextTema();
+		}
 	}
    @Test
    public void testCreate(){
-	 List<Tema>  temasData= new ArrayList<Tema> ();
 	 
-	 while(data.hasNextTema()){
-		 if(data.getTema()!=null){
-			 System.out.println("!!!Tema Id: " + data.getTema().getId() + ": "
-                     + data.getTema());
-			 dao.create(data.getTema());
-			 temasData.add(data.getTema());
-		 }
-		 data.nextTema();
-	 }
 	  List<Tema> temas = dao.findAll();
 	  for (Tema tema : temasData) {
 		  assertTrue(temas.contains(tema));
-		
 	  }
 	  assertTrue(temasData.size()==temas.size());
 	   }
@@ -65,7 +64,7 @@ public class TemaDaoJpaTest {
    
    
   @Test
-    public void testUpdate(){
+   public void testUpdate(){
 	  
 	  
   }
