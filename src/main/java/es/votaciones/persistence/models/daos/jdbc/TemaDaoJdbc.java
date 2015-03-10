@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.entities.Tema;
+import es.votaciones.persistence.models.entities.Voto;
 
 public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDao {
 	 private Logger log = LogManager.getLogger(TemaDaoJdbc.class);
@@ -71,6 +72,18 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 	
 	public static String sqlToCreateTable() {
 			return String.format(SQL_CREATE_TABLE, Tema.TABLE, Tema.ID, Tema.DESCRIPCION, Tema.PREGUNTA );
+	}
+
+	@Override
+	public void deleteVotosByTema(Tema tema) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Voto> findAllVotosbyTemaId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
