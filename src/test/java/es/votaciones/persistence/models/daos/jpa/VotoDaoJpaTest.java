@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -52,13 +53,14 @@ public class VotoDaoJpaTest {
 			 int i=0;
 			 while(data.hasNextVoto()){
 				 if(data.getVoto()!=null){
-					if(i==3)
-						i=0;
-					 i++;
+					
 					 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": " + data.getVoto());
-					 data.getVoto().setTema(daoTema.read(i));
+					 data.getVoto().setTema(temasData.get(i));
 					 dao.create(data.getVoto());
 					 votos.add(data.getVoto());
+					 if(i==3)
+							i=0;
+						 i++;
 				 }
 				 data.nextVoto();
 			 }
@@ -66,6 +68,21 @@ public class VotoDaoJpaTest {
  }
    @Test
    public void createTest(){
+	   
+	   
+	   
+   }
+   
+   @Before
+   public void before(){
+	   
+	   // borrar todos los creados en BBBDDD
+	   
+   }
+   
+   @AfterClass
+  public static void afterClass(){
+	   DaoJpaFactory.dropAndCreateTables();  
 	   
    }
 	 

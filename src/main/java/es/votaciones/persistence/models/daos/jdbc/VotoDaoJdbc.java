@@ -68,7 +68,7 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
         return list;
 	}
 	 private static final String SQL_CREATE_TABLE = "CREATE TABLE %s (%s INT NOT NULL AUTO_INCREMENT, %s INT, "
-	            + "%s VARCHAR(255), %s VARCHAR(255), %s INT, PRIMARY KEY (%s), "
+	            + "%s INT, %s VARCHAR(255), %s INT, PRIMARY KEY (%s), "
 	            + "FOREIGN KEY(%s) REFERENCES %s(ID) )";
 	
 	 public static String sqlToCreateTable() {

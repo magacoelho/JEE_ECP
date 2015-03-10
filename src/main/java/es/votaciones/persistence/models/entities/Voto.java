@@ -33,7 +33,7 @@ public class Voto implements Serializable {
 	private Integer valoracion;
 	
 	public static final String NIVEL_ESTUDIO = "nivelEstudio";
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private NivelEstudio nivelEstudio;
 	
 	public static final String IP = "ip";
