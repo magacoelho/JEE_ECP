@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.daos.TemaDao;
 import es.votaciones.persistence.models.daos.VotoDao;
 import es.votaciones.persistence.models.daos.jpa.data.TemaDaoJpaTestData;
@@ -19,9 +21,16 @@ public class VotoDaoJpaTest {
    
    private TemaDao daoTema= DaoJpaFactory.getFactory().getTemaDao(); 
    private TemaDaoJpaTestData dataTema;
+   private List<Tema>  temasData;
+  
+   @BeforeClass 
+   public static void beforeClass(){
+	   DaoJpaFactory.dropAndCreateTables();
+	   DaoFactory.setFactory(new DaoJpaFactory());
+	  }
+   
    @Before
    public void init(){
-	   DaoJpaFactory.dropAndCreateTables();
 	   data = new VotoDaoJpaTestData();
 	   dataTema= new TemaDaoJpaTestData();
 	   
