@@ -85,7 +85,7 @@ public class Tema implements Serializable{
 			return false;
 		
 		Tema other = (Tema) obj;
-		return this.getDescripcion().equals(other.getDescripcion())
+		return this.id.equals(other.getId())&&this.getDescripcion().equals(other.getDescripcion())
 			&& this.getPregunta().equals(other.getPregunta());
 		
 	}

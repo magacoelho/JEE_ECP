@@ -1,5 +1,7 @@
 package es.votaciones.persistence.models.daos.jpa;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +35,8 @@ public class VotoDaoJpaTest {
    public void init(){
 	   data = new VotoDaoJpaTestData();
 	   dataTema= new TemaDaoJpaTestData();
-	   
- }
-  // @Test
-   public void createTest(){
-	  
-		   //crear Temas
-	   List<Tema>  temasData= new ArrayList<Tema> ();
+	   //crear Temas
+	    temasData= new ArrayList<Tema> ();
 		 
 		 while(dataTema.hasNextTema()){
 			 if(dataTema.getTema()!=null){
@@ -50,25 +47,26 @@ public class VotoDaoJpaTest {
 			 }
 			 dataTema.nextTema();
 		 }
-	   // crear Voto..
-        List<Voto>  votos= new ArrayList<Voto> ();
-		 int i=0;
-		 while(data.hasNextVoto()){
-			 if(data.getVoto()!=null){
-				if(i==3)
-					i=0;
-				 i++;
-				 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": " + data.getVoto());
-				 data.getVoto().setTema(daoTema.read(i));
-				 dao.create(data.getVoto());
-				 votos.add(data.getVoto());
+		// crear Voto..
+	        List<Voto>  votos= new ArrayList<Voto> ();
+			 int i=0;
+			 while(data.hasNextVoto()){
+				 if(data.getVoto()!=null){
+					if(i==3)
+						i=0;
+					 i++;
+					 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": " + data.getVoto());
+					 data.getVoto().setTema(daoTema.read(i));
+					 dao.create(data.getVoto());
+					 votos.add(data.getVoto());
+				 }
+				 data.nextVoto();
 			 }
-			 data.nextVoto();
-		 }
-		 
-		 
-	   //aosciarlos con temas...
-	   
+	
+ }
+   @Test
+   public void createTest(){
 	   
    }
+	 
 }

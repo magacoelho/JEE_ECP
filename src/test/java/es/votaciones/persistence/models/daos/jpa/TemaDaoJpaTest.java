@@ -51,13 +51,16 @@ public class TemaDaoJpaTest {
 	}
    @Test
    public void testCreate(){
-	 
-	  List<Tema> temas = dao.findAll();
-	  for (Tema tema : temasData) {
-		  assertTrue(temas.contains(tema));
-	  }
-	  assertTrue(temasData.size()==temas.size());
-	   }
+	 Tema temaAux = new Tema("ECOLOGIA","Emisión de gases por parte de las fábricas");
+	 dao.create(temaAux);
+	 assertTrue(temaAux.equals(dao.read(temaAux.getId())));
+	 List<Tema> temas = dao.findAll();
+	 for (Tema tema : temas) {
+       if(tema.equals(temaAux))
+    	   assertTrue(tema.equals(temaAux));
+     }
+	 assertTrue(temasData.size()==temas.size()-1);
+	}
    
    @Test
    public void testRead(){
