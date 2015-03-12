@@ -51,15 +51,16 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	        // Se crea un criterio de consulta
 	        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 	        CriteriaQuery<Voto> criteriaQuery = criteriaBuilder.createQuery(Voto.class);
-
+            Root<Tema> rootTema = criteriaQuery.from(Tema.class);
 	        // Se establece la clausula FROM
+            
 	        Root<Voto> root = criteriaQuery.from(Voto.class);
 
 	        // Se establece la clausula SELECT
 	        criteriaQuery.select(root); // criteriaQuery.multiselect(root.get(atr))
 
            // No existen predicados
-	        Predicate predicate = criteriaBuilder.equal(root.get("tema_id").as(Integer.class),id);
+	        Predicate predicate = criteriaBuilder.equal(rootTema, root.get("tema"));
             
 	        // Se realiza la query
 	        criteriaQuery.where(predicate);
@@ -70,5 +71,10 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	        entityManager.close();
 	        return result;
 	}
-
+   @Override
+   public void deleteById(Integer id) {
+	// TODO Auto-generated method stub
+	   deleteVotosByTema(this.read(id));
+	super.deleteById(id);
+}
 }
