@@ -23,12 +23,25 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 
 	@Override
 	public void deleteVotosByTema(Tema tema) {
-		List<Voto> votos= findAllVotosbyTemaId(tema.getId());
+		EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
+   		List<Voto> votos= findAllVotosbyTemaId(tema.getId());
 		for (Voto voto : votos) {
-			
-		   // borrar los votos uno a uno.	
+			try{
+			  entityManager.getTransaction().begin();
+		      entityManager.remove(voto);   
+		      entityManager.getTransaction().commit();
+		      LogManager.getLogger(GenericDaoJpa.class).debug("delete: " + voto);
+		      entityManager.close();
+			}
+			catch(Exception e){
+				LogManager.getLogger(GenericDaoJpa.class).error("delete: " + e);
+                if (entityManager.getTransaction().isActive())
+                    entityManager.getTransaction().rollback();
+			}
+		 finally {
+            entityManager.close();
+        }
 		}
-		
 		
 	}
 
