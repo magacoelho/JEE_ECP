@@ -1,5 +1,6 @@
 package es.votaciones.persistence.models.daos.jpa;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class VotoDaoJpaTest {
 			 dataTema.nextTema();
 		 }
 		// crear Voto..
-		   data = new VotoDaoJpaTestData();
+		    data = new VotoDaoJpaTestData();
 	        votosData= new ArrayList<Voto> ();
 			 int i=0;
 			 while(data.hasNextVoto()){
@@ -75,9 +76,26 @@ public class VotoDaoJpaTest {
 	 dao.create(votoAux);   
 	 votosData.add(votoAux);
 	 assertTrue(votoAux.equals(dao.read(votoAux.getId())));   
+   }
+   @Test 
+   public void deleteTest(){
+   for (Voto voto : votosData) {
+		  dao.deleteById(voto.getId());
+		  assertNull(dao.read(voto.getId()));
+      }
+   }
+    
+   @Test
+   public void updateTest(){
+	   for (Voto voto : votosData) {
+		      voto.setNivelEstudio(NivelEstudio.UNIVERSIDAD);
+			  dao.update(voto);
+			  assertTrue(dao.read(voto.getId()).equals(voto));
+	      } 
 	   
    }
-   
+	   
+  
    @After
    public void after(){
 	   
