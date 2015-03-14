@@ -19,18 +19,18 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 	private Logger log = LogManager.getLogger(VotoDaoJdbc.class);
 	public Voto create(ResultSet resultSet) {
 		Voto voto;
-		Tema tema; 
+		Tema tema = null; 
 		try {
 			if(resultSet!=null&&resultSet.next()){
 			  Integer temaid= resultSet.getInt(Voto.TEMA_ID);
 			  if(temaid>0){
 				  tema= DaoFactory.getFactory().getTemaDao().read(temaid);
 			  }
-			  
-			 // voto= new Voto(resultSet.getInt(Voto.VALORACION), NivelEstudio(resultSet.getString(Voto.NIVEL_ESTUDIO)),resultSet.getString(Voto.IP), tema);	
-				
-				
-				
+			
+			  int vv = resultSet.getInt(Voto.NIVEL_ESTUDIO); 
+			 NivelEstudio[] ne = NivelEstudio.values();
+			 NivelEstudio ne2= ne[vv];
+			 voto= new Voto(resultSet.getInt(Voto.VALORACION),  ne2,resultSet.getString(Voto.IP), tema);	
 			}
 		} catch (SQLException e) {
 			log.error("read: " + e.getMessage());
