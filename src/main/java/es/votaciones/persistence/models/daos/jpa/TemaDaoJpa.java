@@ -28,6 +28,7 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 		for (Voto voto : votos) {
 			try{
 			  entityManager.getTransaction().begin();
+			  voto=entityManager.getReference(Voto.class,voto.getId());
 		      entityManager.remove(voto);   
 		      entityManager.getTransaction().commit();
 		      LogManager.getLogger(GenericDaoJpa.class).debug("delete: " + voto);
@@ -54,16 +55,18 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
             Root<Tema> rootTema = criteriaQuery.from(Tema.class);
 	        // Se establece la clausula FROM
             
-	        Root<Voto> root = criteriaQuery.from(Voto.class);
+	        Root<Voto> rootVoto = criteriaQuery.from(Voto.class);
 
-	        // Se establece la clausula SELECT
-	        criteriaQuery.select(root); // criteriaQuery.multiselect(root.get(atr))
-
-           // No existen predicados
-	        Predicate predicate = criteriaBuilder.equal(rootTema, root.get("tema"));
+	       
+	        criteriaQuery.select(rootVoto); // criteriaQuery.multiselect(root.get(atr))
             
+	        Predicate predicate = criteriaBuilder.equal(rootTema, rootVoto.get("tema"));
+            Predicate predicate2 = criteriaBuilder.equal(rootTema.get("id"), id);
+            
+               
 	        // Se realiza la query
-	        criteriaQuery.where(predicate);
+	        criteriaQuery.where(criteriaBuilder.and(predicate,predicate2));
+	        
 	        TypedQuery<Voto> typedQuery = entityManager.createQuery(criteriaQuery);
 	        typedQuery.setFirstResult(0); // El primero es 0
 	        typedQuery.setMaxResults(0); // Se realiza la query, se buscan todos
@@ -73,7 +76,6 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	}
    @Override
    public void deleteById(Integer id) {
-	// TODO Auto-generated method stub
 	   deleteVotosByTema(this.read(id));
 	super.deleteById(id);
 }

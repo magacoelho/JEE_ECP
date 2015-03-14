@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,6 +18,7 @@ import es.votaciones.persistence.models.daos.jpa.data.TemaDaoJpaTestData;
 import es.votaciones.persistence.models.daos.jpa.data.VotoDaoJpaTestData;
 import es.votaciones.persistence.models.entities.Tema;
 import es.votaciones.persistence.models.entities.Voto;
+import es.votaciones.persistence.models.utils.NivelEstudio;
 
 public class VotoDaoJpaTest {
    private VotoDao dao=DaoJpaFactory.getFactory().getVotoDao();
@@ -25,16 +27,16 @@ public class VotoDaoJpaTest {
    private TemaDao daoTema= DaoJpaFactory.getFactory().getTemaDao(); 
    private TemaDaoJpaTestData dataTema;
    private List<Tema>  temasData;
+   private List<Voto>  votosData;
   
    @BeforeClass 
    public static void beforeClass(){
-	   DaoJpaFactory.dropAndCreateTables();
+	   //DaoJpaFactory.dropAndCreateTables();
 	   DaoFactory.setFactory(new DaoJpaFactory());
 	  }
    
    @Before
    public void init(){
-	   data = new VotoDaoJpaTestData();
 	   dataTema= new TemaDaoJpaTestData();
 	   //crear Temas
 	    temasData= new ArrayList<Tema> ();
@@ -49,7 +51,8 @@ public class VotoDaoJpaTest {
 			 dataTema.nextTema();
 		 }
 		// crear Voto..
-	        List<Voto>  votos= new ArrayList<Voto> ();
+		   data = new VotoDaoJpaTestData();
+	        votosData= new ArrayList<Voto> ();
 			 int i=0;
 			 while(data.hasNextVoto()){
 				 if(data.getVoto()!=null){
@@ -57,8 +60,8 @@ public class VotoDaoJpaTest {
 					 System.out.println("!!!Voto Id: " + data.getVoto().getId() + ": " + data.getVoto());
 					 data.getVoto().setTema(temasData.get(i));
 					 dao.create(data.getVoto());
-					 votos.add(data.getVoto());
-					 if(i==3)
+					 votosData.add(data.getVoto());
+					 if(i==temasData.size()-1)
 							i=0;
 						 i++;
 				 }
@@ -68,19 +71,26 @@ public class VotoDaoJpaTest {
  }
    @Test
    public void createTest(){
-	   
-	   
-	   
-   }
-   
-   @Before
-   public void before(){
-	   
-	   // borrar todos los creados en BBBDDD
+	 Voto votoAux = new Voto(8,NivelEstudio.BACHILLERATO,"0.0.0.1", temasData.get(0));
+	 dao.create(votoAux);   
+	 votosData.add(votoAux);
+	 assertTrue(votoAux.equals(dao.read(votoAux.getId())));   
 	   
    }
    
-   @AfterClass
+   @After
+   public void after(){
+	   
+	  for (Voto voto : votosData) {
+		  dao.deleteById(voto.getId());
+      }
+	   
+	   for (Tema tema : temasData) {
+		   daoTema.deleteById(tema.getId());
+	}
+   }
+   
+   //@AfterClass
   public static void afterClass(){
 	   DaoJpaFactory.dropAndCreateTables();  
 	   
