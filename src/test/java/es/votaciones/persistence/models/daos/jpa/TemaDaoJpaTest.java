@@ -98,10 +98,5 @@ public class TemaDaoJpaTest {
 			  dao.deleteById(tema.getId());
 		  }
    }
-   
-   //@AfterClass
-   public static void eliminar(){
-	   DaoJpaFactory.dropAndCreateTables();
-   }
   
 }
