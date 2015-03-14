@@ -24,11 +24,11 @@ public class TemaDaoJpaTest {
 	private TemaDao dao= DaoJpaFactory.getFactory().getTemaDao(); 
 	private TemaDaoJpaTestData data;
 	private List<Tema>  temasData;
-		
+	private int numTemasBefore;		
 	@BeforeClass
 	public static void arranque(){
 		
-		DaoJpaFactory.dropAndCreateTables();
+		//DaoJpaFactory.dropAndCreateTables();
 		DaoFactory.setFactory(new DaoJpaFactory());
 		 
    }
@@ -38,7 +38,7 @@ public class TemaDaoJpaTest {
 
 		data= new TemaDaoJpaTestData();
 		temasData= new ArrayList<Tema> ();
-		
+		numTemasBefore= dao.findAll().size();
 		while(data.hasNextTema()){
 			if(data.getTema()!=null){
 				System.out.println("!!!Tema Id: " + data.getTema().getId() + ": "
@@ -49,17 +49,17 @@ public class TemaDaoJpaTest {
 			}
 		}
 	}
-   @Test
+  @Test
    public void testCreate(){
 	 Tema temaAux = new Tema("ECOLOGIA","Emisión de gases por parte de las fábricas");
+	 int numTemasOld= dao.findAll().size();
+	
 	 dao.create(temaAux);
+	 temasData.add(temaAux);
 	 assertTrue(temaAux.equals(dao.read(temaAux.getId())));
-	 List<Tema> temas = dao.findAll();
-	 for (Tema tema : temas) {
-       if(tema.equals(temaAux))
-    	   assertTrue(tema.equals(temaAux));
-     }
-	 assertTrue(temasData.size()==temas.size()-1);
+	 assertTrue(numTemasOld== dao.findAll().size()-1);
+	 
+	 
 	}
    
    @Test
@@ -82,12 +82,14 @@ public class TemaDaoJpaTest {
    public void testDeleteById(){
 	  Tema tem= temasData.get(0);
 	  dao.deleteById(tem.getId());
+	  temasData.remove(0);
 	  assertNull(dao.read(tem.getId()));
   }
 
    @Test
    public void  findAll(){
-	  assertTrue(dao.findAll().equals(temasData)); 
+	   
+	  assertTrue(dao.findAll().size()== numTemasBefore +temasData.size()); 
 	}
    @After
    public  void finalizar(){
@@ -97,7 +99,7 @@ public class TemaDaoJpaTest {
 		  }
    }
    
-   @AfterClass
+   //@AfterClass
    public static void eliminar(){
 	   DaoJpaFactory.dropAndCreateTables();
    }
