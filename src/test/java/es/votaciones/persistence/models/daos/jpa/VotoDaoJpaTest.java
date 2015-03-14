@@ -29,6 +29,7 @@ public class VotoDaoJpaTest {
    private TemaDaoJpaTestData dataTema;
    private List<Tema>  temasData;
    private List<Voto>  votosData;
+   private int beforeTestVoto;
   
    @BeforeClass 
    public static void beforeClass(){
@@ -54,6 +55,7 @@ public class VotoDaoJpaTest {
 		// crear Voto..
 		    data = new VotoDaoJpaTestData();
 	        votosData= new ArrayList<Voto> ();
+	        beforeTestVoto= dao.findAll().size();
 			 int i=0;
 			 while(data.hasNextVoto()){
 				 if(data.getVoto()!=null){
@@ -70,6 +72,16 @@ public class VotoDaoJpaTest {
 			 }
 	
  }
+   @Test
+   public void readTest(){
+	   
+	   for (Voto voto : votosData) {
+		  assertTrue(dao.read(voto.getId()).equals(voto));
+	}
+	   
+   }
+   
+   
    @Test
    public void createTest(){
 	 Voto votoAux = new Voto(8,NivelEstudio.BACHILLERATO,"0.0.0.1", temasData.get(0));
@@ -94,6 +106,16 @@ public class VotoDaoJpaTest {
 	      } 
 	   
    }
+   
+   @Test 
+   public void findAllTest(){
+	   List<Voto> votos = dao.findAll();
+	   for (Voto voto : votosData) {
+		assertTrue(votos.contains(voto));
+	}
+	   
+	   
+   }
 	   
   
    @After
@@ -107,11 +129,4 @@ public class VotoDaoJpaTest {
 		   daoTema.deleteById(tema.getId());
 	}
    }
-   
-   //@AfterClass
-  public static void afterClass(){
-	   DaoJpaFactory.dropAndCreateTables();  
-	   
-   }
-	 
 }
