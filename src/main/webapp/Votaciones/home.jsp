@@ -7,7 +7,7 @@
 <title>Home Votaciones</title>
 </head>
 <body>
-	<h1>Home Persona: V1</h1>
+	<h1>Home Votaciones </h1>
 	<p>
 		<a href="/Votaciones/votar">Votar</a>
 	</p>
