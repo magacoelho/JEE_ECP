@@ -29,10 +29,15 @@ public class Dispatcher extends HttpServlet {
 		
 		case "votar":
 			        VotarView votarView = new VotarView();
+			        
+			        request.setAttribute(action,votarView);
 			        view="action";
 					break;
 		
-		case "agregar": 
+		case "agregar":
+			        AgregarView agregarView = new AgregarView();
+			        
+			        request.setAttribute(action,agregarView);
 					view="action";
 					break;
 					
