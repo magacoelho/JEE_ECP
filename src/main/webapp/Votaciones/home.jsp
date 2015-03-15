@@ -14,5 +14,12 @@
 	<p>
 		<a href="/Votaciones/agregar">Agregar Tema</a>
 	</p>
+	<p>
+        <a href="/Votaciones/verVotaciones">Ver Votaciones</a>
+    </p>
+    <p>
+        <a href="/Votaciones/eliminar">Eliminar Tema</a>
+    </p>
+   
 </body>
 </html>
