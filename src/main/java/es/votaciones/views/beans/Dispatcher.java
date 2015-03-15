@@ -27,36 +27,33 @@ public class Dispatcher extends HttpServlet {
 		String view;
 		switch(action){
 		
-		case "votar":
-			        VotarView votarView = new VotarView();
-			        
-			        request.setAttribute(action,votarView);
-			        view="action";
-					break;
-		
-		case "agregar":
-			        AgregarView agregarView = new AgregarView();
-			        
-			        request.setAttribute(action,agregarView);
-					view="action";
-					break;
-					
-		case "verVotaciones":
+			case "votar":       VotarView votarView = new VotarView();
+						        
+						        request.setAttribute(action,votarView);
+						        view="action";
+								break;
 			
-					        VerVotacionesView verVotacionesView = new  VerVotacionesView();
-					        
-					        request.setAttribute(action,verVotacionesView);
-							                
-							view="action";
-							break;
-							
-		case "eliminar":
-						view="action";
-						break;
+			case "agregar":     AgregarView agregarView = new AgregarView();
+						        
+						        request.setAttribute(action,agregarView);
+								view="action";
+								break;
 						
-		default:
-			    view="home";
-			    break;
+			case "verVotaciones":VerVotacionesView verVotacionesView = new  VerVotacionesView();
+						        
+						        request.setAttribute(action,verVotacionesView);
+								view="action";
+								break;
+								
+			case "eliminar":    EliminarView eliminarView = new EliminarView();
+	        
+								request.setAttribute(action,eliminarView );
+								view="action";
+								break;
+							
+			default:
+							    view="home";
+							    break;
 			}
 		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW+ view +".jsp").forward(request, response);
 	}
