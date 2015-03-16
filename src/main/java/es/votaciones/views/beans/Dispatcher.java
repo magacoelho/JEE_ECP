@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/jsp/*")
 public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String PATH_ROOT_VIEW = "/Votaciones/";   
+	private static String PATH_ROOT_VIEW = "/ViewsJsp/";   
     
    
 	@Override
@@ -49,7 +49,7 @@ public class Dispatcher extends HttpServlet {
 							    view="home";
 							    break;
 			}
-		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW+ view +".jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW+ view +"View.jsp").forward(request, response);
 	}
 
 	
