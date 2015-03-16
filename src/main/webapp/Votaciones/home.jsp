@@ -9,16 +9,16 @@
 <body>
 	<h1>Home Votaciones </h1>
 	<p>
-		<a href="/Votaciones/votar">Votar</a>
+		<a href="/ECP/jsp/votar">Votar</a>
 	</p>
 	<p>
-		<a href="/Votaciones/agregar">Agregar Tema</a>
+		<a href="/ECP/jsp/agregar">Agregar Tema</a>
 	</p>
 	<p>
-        <a href="/Votaciones/verVotaciones">Ver Votaciones</a>
+        <a href="/ECP/jsp/verVotaciones">Ver Votaciones</a>
     </p>
     <p>
-        <a href="/Votaciones/eliminar">Eliminar Tema</a>
+        <a href="/ECP/jsp/eliminar">Eliminar Tema</a>
     </p>
    
 </body>
