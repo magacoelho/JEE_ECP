@@ -1,5 +1,5 @@
 package es.votaciones.views.beans;
 
-public class VerVotacionesView {
+public class VotarViewBean {
 
 }
