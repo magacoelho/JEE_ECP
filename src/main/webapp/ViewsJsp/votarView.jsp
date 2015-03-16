@@ -11,24 +11,22 @@
 	<h1>
 		Vista de <b>Votar</b>
 	</h1>
-	<!--<c:set var="rView" scope="request" value="${rol}" />
-	<div>${rView.update()}</div>
-	<form action="/Web/v1/rol" method="post">
-		<p>Rol actuales:</p>
-		<ul>
+	<!--<c:set var="vView" scope="request" value="${}" />
+	<div>${rView.update()}</div>-->
+	<form action="/ECP/jsp/votar" method="post">
+		<p>Temas:</p>
+		<!--<ul>
 			<c:forEach var="rol" items="${rView.roles}">
 				<li>${rol}</li>
 			</c:forEach>
-		</ul>
-		<p>
-			Rol nuevo: <input name="rol" type="text" value="" />
-		</p>
+		</ul>-->
+	
 		<p>
 			<input type="submit" value="Enviar" />
 		</p>
 	</form>
 	<p>
-		<a href="/Web/v1/home">Volver a Home</a>
-	</p>-->
+        <a href="/ECP/jsp/home">Home jsp</a>
+    </p>
 </body>
 </html>
