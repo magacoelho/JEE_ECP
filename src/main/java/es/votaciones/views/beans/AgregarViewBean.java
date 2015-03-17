@@ -3,6 +3,12 @@ package es.votaciones.views.beans;
 import org.apache.logging.log4j.LogManager;
 
 
+
+
+
+import es.votaciones.controllers.AgregarTemaController;
+import es.votaciones.controllers.ControllerFactory;
+import es.votaciones.controllers.ejb.AgregarTemaEjbController;
 import es.votaciones.persistence.models.entities.Tema;
 
 public class AgregarViewBean  extends ViewBean{
@@ -33,7 +39,10 @@ public class AgregarViewBean  extends ViewBean{
     public String process() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para registrar rol: " + tema);
-        getControllerFactory().getAgregarTemaController().agregar(getTema());
+        AgregarTemaController agregarTemaController = new AgregarTemaEjbController();
+        agregarTemaController.agregar(tema);
+        
+        //getControllerFactory().getAgregarTemaController().agregar(getTema());
         return "home";
     }
 	

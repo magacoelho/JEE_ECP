@@ -13,7 +13,7 @@ public class User1 {
 
     private String name;
     
-    @Transient //No persistente
+    @Transient //No persistente 
     private String volatil;
 
     public User1(Integer id, String name) {

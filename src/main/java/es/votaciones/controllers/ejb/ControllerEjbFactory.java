@@ -22,7 +22,6 @@ public class ControllerEjbFactory extends ControllerFactory{
 
 	@Override
 	public AgregarTemaController getAgregarTemaController() {
-		
 		return new AgregarTemaEjbController();
 	}
 

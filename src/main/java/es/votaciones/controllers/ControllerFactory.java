@@ -4,6 +4,7 @@ package es.votaciones.controllers;
 
 public abstract class ControllerFactory {
 	public static ControllerFactory controllerFactory=null;
+	
 	public static void setControllerFactory(ControllerFactory controllerFactory) {
 		ControllerFactory.controllerFactory= controllerFactory;
     }
