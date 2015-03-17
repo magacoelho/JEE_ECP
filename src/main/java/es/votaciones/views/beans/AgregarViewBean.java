@@ -17,6 +17,7 @@ public class AgregarViewBean  extends ViewBean{
 	
 	
 	public AgregarViewBean() {
+		super();
 		
 	}
 
@@ -39,10 +40,9 @@ public class AgregarViewBean  extends ViewBean{
     public String process() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para registrar rol: " + tema);
-        AgregarTemaController agregarTemaController = new AgregarTemaEjbController();
+        AgregarTemaController agregarTemaController = ControllerFactory.getControllerFactory().getAgregarTemaController();
         agregarTemaController.agregar(tema);
-        
-        //getControllerFactory().getAgregarTemaController().agregar(getTema());
+         //getControllerFactory().getAgregarTemaController().agregar(getTema());
         return "home";
     }
 	
