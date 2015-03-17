@@ -60,9 +60,9 @@ public class Dispatcher extends HttpServlet {
 		switch(action){
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
-						       
+						        
 						        request.setAttribute(action,votarView);
-						        view=action;
+						        view=votarView.process();
 								break;
 			
 			case "agregar":     Tema  tema = new Tema();

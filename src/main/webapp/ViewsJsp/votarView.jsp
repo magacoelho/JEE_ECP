@@ -20,7 +20,25 @@
 				<li>${tema}</li>
 			</c:forEach>
 		</ul>
-	
+		 <select name="tema" id="tema">
+		   <c:forEach var="tema" items="${vView.temas}">
+					<option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.descripcion}</option>
+				</c:forEach>
+		</select>
+		<label>Nivel Estudios:</label>
+		 <select name="nivelEstudios" id="nivelEstudios">
+		   <c:forEach var="tema" items="${vView.temas}">
+					<option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.descripcion}</option>
+				</c:forEach>
+		</select>
+		<p>
+			<label>Pregunta:</label>
+			<input type="text" value="" name="pregunta" id="pregunta"/>
+		</p>
+	    <p> 
+	        <label>Valoraci&oacute;n: </label>
+			<input type="text" value="" name="valoracion" id="valoracion"/>
+		</p>
 		<p>
 			<input type="submit" value="Enviar" />
 		</p>
