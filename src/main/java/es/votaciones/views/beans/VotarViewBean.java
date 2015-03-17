@@ -16,7 +16,7 @@ public class VotarViewBean extends ViewBean{
 	private List<Tema> temas;
     private Tema tema;
     private Voto voto;
-    private NivelEstudio nivelEstudio;
+    
     
 	public VotarViewBean() {
 		
