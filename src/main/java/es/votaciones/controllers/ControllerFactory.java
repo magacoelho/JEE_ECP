@@ -1,6 +1,16 @@
 package es.votaciones.controllers;
 
+
+
 public abstract class ControllerFactory {
+	public static ControllerFactory controllerFactory=null;
+	public static void setFactory(ControllerFactory controllerFactory) {
+		ControllerFactory.controllerFactory= controllerFactory;
+    }
+    public static ControllerFactory getControllerFactory() {
+    	   assert controllerFactory != null;
+           return controllerFactory;
+      }
 	
 	public abstract VotarController getVotarController();
 	public abstract VerVotacionesController getverVotacionesController();
