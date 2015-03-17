@@ -24,13 +24,13 @@ public class Dispatcher extends HttpServlet {
 		switch(action){
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
-						       
+						        votarView.update();
 						        request.setAttribute(action,votarView);
 						        view=action;
 								break;
 			
 			case "agregar":     AgregarViewBean agregarView = new AgregarViewBean();
-						        
+						        agregarView.setTema(new Tema());
 						        request.setAttribute(action,agregarView);
 								view=action;
 								break;

@@ -11,6 +11,8 @@ public abstract class DaoFactory {
     }
     public static DaoFactory getFactory() {
     	   assert factory != null;
+    	   if(factory==null)
+    	     {  factory= new DaoJpaFactory();}
            return factory;
        
     }

@@ -9,7 +9,7 @@ import es.votaciones.persistence.models.entities.Tema;
 public class AgregarTemaEjbController  implements AgregarTemaController{
 	
     public AgregarTemaEjbController() {
-    	DaoFactory.setFactory(new DaoJpaFactory());
+    	//DaoFactory.setFactory(new DaoJpaFactory());
 	}
 	@Override
 	public void agregar(Tema tema) {

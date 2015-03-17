@@ -34,7 +34,7 @@ public class AgregarViewBean  extends ViewBean{
 	public void update() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar roles");
-        this.tema = new Tema();//roles = new String[] {"uno", "dos", "tres"};
+        this.tema = tema;//roles = new String[] {"uno", "dos", "tres"};
     }
 
     public String process() {
