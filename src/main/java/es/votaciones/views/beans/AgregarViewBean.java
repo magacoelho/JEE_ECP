@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 
 import es.votaciones.persistence.models.entities.Tema;
 
-public class AgregarViewBean {
+public class AgregarViewBean  extends ViewBean{
 	
 	private Tema tema;
 	
