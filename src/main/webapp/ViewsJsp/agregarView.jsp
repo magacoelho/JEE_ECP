@@ -11,24 +11,21 @@
 	<h1>
 		Vista de <b>Agregar Tema</b>
 	</h1>
-	<!--<c:set var="rView" scope="request" value="${rol}" />
-	<div>${rView.update()}</div>
-	<form action="/Web/v1/rol" method="post">
-		<p>Rol actuales:</p>
-		<ul>
-			<c:forEach var="rol" items="${rView.roles}">
-				<li>${rol}</li>
-			</c:forEach>
-		</ul>
-		<p>
-			Rol nuevo: <input name="rol" type="text" value="" />
-		</p>
-		<p>
-			<input type="submit" value="Enviar" />
-		</p>
-	</form>
-	<p>
-		<a href="/Web/v1/home">Volver a Home</a>
-	</p>-->
+	
+    <form action="/ECP/jsp/agregar" method="post">
+        <p>Temas:</p>
+        <p> 
+            <label> Descripción:</label><input type="text" value="" name="descripcion" id="descripcion"/>
+        </p>
+        <p> 
+           <label> Pregunta:</label><input type="text" value="" name="pregunta" id="pregunta"/>
+        </p>
+        <p>
+            <input type="submit" value="Enviar" />
+        </p>
+    </form>
+    <p>
+        <a href="/ECP/jsp/home">Home jsp</a>
+    </p>
 </body>
 </html>
