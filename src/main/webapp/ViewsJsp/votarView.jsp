@@ -39,6 +39,10 @@
 	        <label>Valoraci&oacute;n: </label>
 			<input type="text" value="" name="valoracion" id="valoracion"/>
 		</p>
+		 <p> 
+	      
+			<input type="hidden" value="" name="ip" id="ip"/>
+		</p>
 		<p>
 			<input type="submit" value="Enviar" />
 		</p>

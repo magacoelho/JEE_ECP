@@ -10,11 +10,13 @@ import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.controllers.VotarController;
 import es.votaciones.persistence.models.entities.Tema;
 import es.votaciones.persistence.models.entities.Voto;
+import es.votaciones.persistence.models.utils.NivelEstudio;
 
 public class VotarViewBean extends ViewBean{
 	private List<Tema> temas;
     private Tema tema;
     private Voto voto;
+    private NivelEstudio nivelEstudio;
     
 	public VotarViewBean() {
 		
