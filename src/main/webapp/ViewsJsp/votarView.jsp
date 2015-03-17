@@ -11,15 +11,15 @@
 	<h1>
 		Vista de <b>Votar</b>
 	</h1>
-	<!--<c:set var="vView" scope="request" value="${}" />
-	<div>${rView.update()}</div>-->
+	<c:set var="vView" scope="request" value="${votar}" />
+	<div>${vView.update()}</div>
 	<form action="/ECP/jsp/votar" method="post">
 		<p>Temas:</p>
-		<!--<ul>
-			<c:forEach var="rol" items="${rView.roles}">
-				<li>${rol}</li>
+		<ul>
+			<c:forEach var="tema" items="${vView.temas}">
+				<li>${tema}</li>
 			</c:forEach>
-		</ul>-->
+		</ul>
 	
 		<p>
 			<input type="submit" value="Enviar" />

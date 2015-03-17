@@ -24,7 +24,6 @@ public class Dispatcher extends HttpServlet {
 		switch(action){
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
-						        votarView.update();
 						        request.setAttribute(action,votarView);
 						        view=action;
 								break;

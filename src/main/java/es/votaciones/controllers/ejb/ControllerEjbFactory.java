@@ -11,7 +11,7 @@ public class ControllerEjbFactory extends ControllerFactory{
 	@Override
 	public VotarController getVotarController() {
 		
-		return null;
+		return new VotarEjbController();
 	}
 
 	@Override
