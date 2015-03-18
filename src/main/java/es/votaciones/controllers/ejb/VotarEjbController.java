@@ -1,5 +1,6 @@
 package es.votaciones.controllers.ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.votaciones.controllers.VotarController;
@@ -25,8 +26,13 @@ public class VotarEjbController implements VotarController {
 
 	@Override
 	public List<NivelEstudio> todosNivelesEstudio() {
-		// TODO Auto-generated method stub
-		return null;
+		List<NivelEstudio> nivelesEstudio = new ArrayList<NivelEstudio>();
+		NivelEstudio[] ne = NivelEstudio.values();
+		for (int i = 0; i <ne.length; i++) {
+			nivelesEstudio.add(ne[i]);
+			
+		}
+		return nivelesEstudio;
 	}
 
 }

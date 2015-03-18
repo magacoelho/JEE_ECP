@@ -31,9 +31,9 @@ function temaSeleccionado() {
 		</select>
 		<label>Nivel Estudios:</label>
 		 <select name="nivelEstudios" id="nivelEstudios">
-		   <c:forEach var="tema" items="${vView.temas}">
+		   <c:forEach var="nivel" items="${vView.nivelesEstudio}">
 		            
-					<option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.descripcion}</option>
+					<option value="${nivel}" id="${nivel}" name="${nivel}">${nivel}</option>
 					<c:set var="selec" value="" ></c:set>
 		  </c:forEach>
 		  <!--<c:set var="temaSel" value="if ${tema}"></c:set>-->

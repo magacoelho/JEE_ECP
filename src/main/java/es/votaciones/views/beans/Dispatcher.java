@@ -64,12 +64,13 @@ public class Dispatcher extends HttpServlet {
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
 						        Voto voto = new Voto();
-						        //voto.setNivelEstudio(request.getParameter("nivelEstudio"));
+						        
+						        voto.setNivelEstudio(NivelEstudio.valueOf(NivelEstudio.class, request.getParameter("nivelEstudios")));
 						        //voto.setNivelEstudio(NivelEstudio.);
 						        
 						        voto.setIp(request.getParameter("ip"));
 						        voto.setValoracion(Integer.parseInt(request.getParameter("valoracion")));
-						        String temaString = request.getParameter("tema");
+						       
 						        Tema tem = new Tema();
 						        tem.setId(Integer.parseInt(request.getParameter("tema")));
 						        voto.setTema(tem);
