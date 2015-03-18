@@ -12,7 +12,7 @@ function temaSeleccionado() {
 	document.getElementById("pregunta").selectedIndex= document.getElementById("tema").selectedIndex;
   
 }
-function preguntaSeleccionada() {
+function preguntaSeleccionada()  {
 	 document.getElementById("tema").selectedIndex=document.getElementById("pregunta").selectedIndex;
   
 }
