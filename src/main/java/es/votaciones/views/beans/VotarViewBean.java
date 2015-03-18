@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
-
-import es.votaciones.controllers.AgregarTemaController;
 import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.controllers.VotarController;
 import es.votaciones.persistence.models.entities.Tema;
@@ -16,12 +14,17 @@ public class VotarViewBean extends ViewBean{
 	private List<Tema> temas;
     private Tema tema;
     private Voto voto;
-    
+    private List<NivelEstudio> nivelesEstudio;
     
 	public VotarViewBean() {
 		
 	}
-
+    public List<NivelEstudio> getNivelesEstudio() {
+		return nivelesEstudio;
+	}
+    public void setNivelesEstudio(List<NivelEstudio> nivelesEstudio) {
+		this.nivelesEstudio = nivelesEstudio;
+	}
 	public Voto getVoto() {
 		return voto;
 	}
@@ -52,6 +55,7 @@ public class VotarViewBean extends ViewBean{
                 "Se accede a la capa de negocio para recuperar Temas");
        VotarController votarController = ControllerFactory.getControllerFactory().getVotarController();
        this.temas =votarController.todosTemas();
+       this.nivelesEstudio=votarController.todosNivelesEstudio();
     }
 	
 	public String  process(){
