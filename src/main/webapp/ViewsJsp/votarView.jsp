@@ -9,8 +9,7 @@
 
 <script>
 function temaSeleccionado() {
-    var x = document.getElementById("nivelEstudios").selectedIndex;
-    return x;
+	document.getElementById("pregunta").selectedIndex= document.getElementById("tema").selectedIndex;
   
 }
 
@@ -23,21 +22,26 @@ function temaSeleccionado() {
 	<c:set var="vView" scope="request" value="${votar}" />
 	<div>${vView.update()}</div>
 	<form action="/ECP/jsp/votar" method="post">
-		<p>Temas:</p>
-		 <select name="tema" id="tema">
+		<div>Temas:</div>
+		 <select name="tema" id="tema" onchange="temaSeleccionado();">
 		   <c:forEach var="tema" items="${vView.temas}">
-					<option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.descripcion}</option>
-				</c:forEach>
+					<option value="${tema.id}" id="${tema.id}" >${tema.descripcion}|| ${tema.pregunta}</option>
+		</c:forEach>
 		</select>
+	    <select  id="pregunta">
+		     <c:forEach var="tema" items="${vView.temas}">
+                    <option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.pregunta}</option>
+        </c:forEach>
+		</select>
+		<div>
 		<label>Nivel Estudios:</label>
-		 <select name="nivelEstudios" id="nivelEstudios">
-		   <c:forEach var="nivel" items="${vView.nivelesEstudio}">
-		            
-					<option value="${nivel}" id="${nivel}" name="${nivel}">${nivel}</option>
-					<c:set var="selec" value="" ></c:set>
-		  </c:forEach>
-		  <!--<c:set var="temaSel" value="if ${tema}"></c:set>-->
-		</select>
+		<select name="nivelEstudios" id="nivelEstudios">
+           <c:forEach var="nivel" items="${vView.nivelesEstudio}">
+                     <option value="${nivel}" id="${nivel}" >${nivel}</option>
+                    <c:set var="selec" value="" ></c:set>
+          </c:forEach>
+        </select>
+        </div>
 		
 	    <p> 
 	        <label>Valoraci&oacute;n: </label>
@@ -53,7 +57,7 @@ function temaSeleccionado() {
 	<p>
 	      <label>Pregunta:</label>
 		
-			<label name="pregunta" id="pregunta">${vView.temas[nivelEstudiosSelected].pregunta} </label>
+			<label id="pregunta2">${vView.temas[nivelEstudiosSelected].pregunta} </label>
 	</p>		
 	<p>
         <a href="/ECP/jsp/home">Home jsp</a>
