@@ -60,17 +60,18 @@ public class Dispatcher extends HttpServlet {
 		String action = request.getPathInfo().substring(1);
 		String view;
 		Tema tema;
+		request.setCharacterEncoding("UTF-8");
 		switch(action){
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
 						        Voto voto = new Voto();
-						        
 						        voto.setNivelEstudio(NivelEstudio.valueOf(NivelEstudio.class, request.getParameter("nivelEstudios")));
-						        //voto.setNivelEstudio(NivelEstudio.);
-						        
-						        voto.setIp(request.getParameter("ip"));
+						        String ipAddress = request.getHeader("X-FORWARDED-FOR");  
+						        if (ipAddress == null) {  
+						     	   ipAddress = request.getRemoteAddr();  
+						        }
+						        voto.setIp(ipAddress);
 						        voto.setValoracion(Integer.parseInt(request.getParameter("valoracion")));
-						       
 						        Tema tem = new Tema();
 						        tem.setId(Integer.parseInt(request.getParameter("tema")));
 						        voto.setTema(tem);
@@ -79,7 +80,7 @@ public class Dispatcher extends HttpServlet {
 						        view=votarView.process();
 								break;
 			
-			case "agregar":      tema = new Tema();
+			case "agregar":     tema = new Tema();
 			                    tema.setDescripcion(request.getParameter("descripcion"));
 			                    tema.setPregunta(request.getParameter("pregunta"));
 				                AgregarViewBean agregarViewBean = new AgregarViewBean();

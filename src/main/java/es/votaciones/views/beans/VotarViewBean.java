@@ -51,7 +51,7 @@ public class VotarViewBean extends ViewBean{
 	
 	
 	public void update() {
-        LogManager.getLogger(AgregarViewBean.class).debug(
+        LogManager.getLogger(VotarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
        VotarController votarController = ControllerFactory.getControllerFactory().getVotarController();
        this.temas =votarController.todosTemas();

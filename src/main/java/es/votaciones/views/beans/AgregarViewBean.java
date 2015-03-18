@@ -33,13 +33,13 @@ public class AgregarViewBean  extends ViewBean{
 	
 	public void update() {
         LogManager.getLogger(AgregarViewBean.class).debug(
-                "Se accede a la capa de negocio para recuperar roles");
+                "Se accede a la capa de negocio para recuperar Temas");
         this.tema = tema;//roles = new String[] {"uno", "dos", "tres"};
     }
 
     public String process() {
         LogManager.getLogger(AgregarViewBean.class).debug(
-                "Se accede a la capa de negocio para registrar rol: " + tema);
+                "Se accede a la capa de negocio para registrar Tema: " + tema);
         AgregarTemaController agregarTemaController = ControllerFactory.getControllerFactory().getAgregarTemaController();
         agregarTemaController.agregar(tema);
          //getControllerFactory().getAgregarTemaController().agregar(getTema());
