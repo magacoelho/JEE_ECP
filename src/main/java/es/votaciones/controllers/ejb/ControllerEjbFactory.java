@@ -27,8 +27,8 @@ public class ControllerEjbFactory extends ControllerFactory{
 
 	@Override
 	public EliminarTemaController getEliminarTemaController() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return  new EliminarTemaEjbController();
 	}
 
 }
