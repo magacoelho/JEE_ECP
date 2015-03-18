@@ -12,6 +12,10 @@ function temaSeleccionado() {
 	document.getElementById("pregunta").selectedIndex= document.getElementById("tema").selectedIndex;
   
 }
+function preguntaSeleccionada() {
+	 document.getElementById("tema").selectedIndex=document.getElementById("pregunta").selectedIndex;
+  
+}
 
 </script>
 </head>
@@ -25,10 +29,12 @@ function temaSeleccionado() {
 		<div>Temas:</div>
 		 <select name="tema" id="tema" onchange="temaSeleccionado();">
 		   <c:forEach var="tema" items="${vView.temas}">
-					<option value="${tema.id}" id="${tema.id}" >${tema.descripcion}|| ${tema.pregunta}</option>
+					<option value="${tema.id}" id="${tema.id}" >${tema.descripcion}</option>
 		</c:forEach>
 		</select>
-	    <select  id="pregunta">
+		 <label>Pregunta:</label>
+		
+	    <select  id="pregunta" style="-webkit-appearance: none; -moz-appearance: none; appearance: none;" onchange="preguntaSeleccionada()">
 		     <c:forEach var="tema" items="${vView.temas}">
                     <option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.pregunta}</option>
         </c:forEach>
@@ -47,17 +53,15 @@ function temaSeleccionado() {
 	        <label>Valoraci&oacute;n: </label>
 			<input type="text" value="0" name="valoracion" id="valoracion"/>
 		</p>
-		 <p> 
-			<input type="hidden" value="" name="ip" id="ip"/>
-		</p>
+		
 		<p>
 			<input type="submit" value="Enviar" />
 		</p>
 	</form>
 	<p>
-	      <label>Pregunta:</label>
+	     
 		
-			<label id="pregunta2">${vView.temas[nivelEstudiosSelected].pregunta} </label>
+			
 	</p>		
 	<p>
         <a href="/ECP/jsp/home">Home jsp</a>
