@@ -69,9 +69,10 @@ public class Dispatcher extends HttpServlet {
 						        
 						        voto.setIp(request.getParameter("ip"));
 						        voto.setValoracion(Integer.parseInt(request.getParameter("valoracion")));
-						        tema = new Tema();
-						        tema.setId(Integer.parseInt(request.getParameter("id")));
-						        //tema.setDescripcion(descripcion);
+						        String temaString = request.getParameter("tema");
+						        Tema tem = new Tema();
+						        tem.setId(Integer.parseInt(request.getParameter("tema")));
+						        voto.setTema(tem);
 						        votarView.setVoto(voto);
 						        request.setAttribute(action,votarView);
 						        view=votarView.process();
