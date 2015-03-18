@@ -16,8 +16,8 @@ public class ControllerEjbFactory extends ControllerFactory{
 
 	@Override
 	public VerVotacionesController getverVotacionesController() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new VerVotacionesEjbController();
 	}
 
 	@Override
