@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 
 import es.votaciones.controllers.ControllerFactory;
-import es.votaciones.controllers.EliminarTemaController;
 import es.votaciones.persistence.models.entities.Tema;
 
 public class EliminarViewBean extends ViewBean {
@@ -42,19 +41,14 @@ public class EliminarViewBean extends ViewBean {
 	public void update() {
         LogManager.getLogger(EliminarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
-        this.temas = temas;//roles = new String[] {"uno", "dos", "tres"};
+        this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
     }
 
     public String process() {
         LogManager.getLogger(EliminarViewBean.class).debug(
                 "Se accede a la capa de negocio para eliminar Tema: " + idTema);
-        EliminarTemaController eliminarTemaController = ControllerFactory.getControllerFactory().getEliminarTemaController();
-        eliminarTemaController.eliminar(idTema);
-       
+       ControllerFactory.getControllerFactory().getEliminarTemaController().eliminar(idTema);
         return "home";
     }
 	 
-	 
-	 
-
 }
