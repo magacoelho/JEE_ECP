@@ -7,9 +7,10 @@ import es.votaciones.persistence.models.daos.DaoFactory;
 
 public class EliminarTemaEjbController extends ListarTodosEjbController implements EliminarTemaController {
 	private static final Integer CLAVE_BORRADO=666;
+	
 	@Override
 	public void eliminar(Integer idTema) {
-		DaoFactory.getFactory().getVotoDao().deleteById(idTema);
+		DaoFactory.getFactory().getTemaDao().deleteById(idTema);
 	}
 
 	@Override

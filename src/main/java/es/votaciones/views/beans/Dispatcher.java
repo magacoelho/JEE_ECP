@@ -42,9 +42,9 @@ public class Dispatcher extends HttpServlet {
 								view=action;
 								break;
 								
-			case "eliminar":    EliminarViewBean eliminarView = new EliminarViewBean();
-	        
-								request.setAttribute(action,eliminarView );
+			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
+	                            
+	                     		request.setAttribute(action,eliminarViewBean );
 								view=action;
 								break;
 							
@@ -95,10 +95,10 @@ public class Dispatcher extends HttpServlet {
 								view=action;
 								break;
 								
-			case "eliminar":    EliminarViewBean eliminarView = new EliminarViewBean();
-	                            
-								request.setAttribute(action,eliminarView );
-								view=action;
+			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
+	                            eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
+								request.setAttribute(action,eliminarViewBean);
+								view=eliminarViewBean.process();
 								break;
 							
 			default:

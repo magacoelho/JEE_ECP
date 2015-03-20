@@ -1,5 +1,6 @@
 package es.votaciones.views.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +13,9 @@ public class EliminarViewBean extends ViewBean {
 	 private String mensaje;
 	 private Integer claveBorrado;
 	 private Integer idTema;
-	 
+	 public EliminarViewBean() {
+		 this.temas= new ArrayList<Tema>();
+	}
 	public Integer getIdTema() {
 		return idTema;
 	}
@@ -40,11 +43,12 @@ public class EliminarViewBean extends ViewBean {
 	
 	 
 	public void update() {
-		if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
+		
+		//if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
         LogManager.getLogger(EliminarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
         this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
-		}
+		//}
 
     }
 
