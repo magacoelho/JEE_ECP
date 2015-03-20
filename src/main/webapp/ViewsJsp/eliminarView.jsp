@@ -6,29 +6,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>EliminarView</title>
+<script>
+function temaSeleccionado() {
+    document.getElementById("pregunta").selectedIndex= document.getElementById("tema").selectedIndex;
+  
+}
+function preguntaSeleccionada()  {
+     document.getElementById("tema").selectedIndex=document.getElementById("pregunta").selectedIndex;
+  
+}
+
+</script>
 </head>
 <body>
-	<h1>
-		Vista de <b>Eliminar Tema</b>
-	</h1>
-	<!--<c:set var="rView" scope="request" value="${rol}" />
-	<div>${rView.update()}</div>
-	<form action="/Web/v1/rol" method="post">
-		<p>Rol actuales:</p>
-		<ul>
-			<c:forEach var="rol" items="${rView.roles}">
-				<li>${rol}</li>
-			</c:forEach>
-		</ul>
-		<p>
-			Rol nuevo: <input name="rol" type="text" value="" />
-		</p>
-		<p>
-			<input type="submit" value="Enviar" />
-		</p>
-	</form>
-	<p>
-		<a href="/Web/v1/home">Volver a Home</a>
-	</p>-->
+    <h1>
+        Vista de <b>Eliminar</b>
+    </h1>
+    <c:set var="vView" scope="request" value="${eliminar}" />
+    <div>${vView.update()}</div>
+    <form action="/ECP/jsp/votar" method="post">
+        <div>Temas:</div>
+         <select name="tema" id="tema" onchange="temaSeleccionado();">
+           <c:forEach var="tema" items="${vView.temas}">
+                    <option value="${tema.id}" id="${tema.id}" >${tema.descripcion}</option>
+        </c:forEach>
+        </select>
+         <label>Pregunta:</label>
+        
+        <select  id="pregunta" style="-webkit-appearance: none; -moz-appearance: none; appearance: none;" onchange="preguntaSeleccionada()">
+             <c:forEach var="tema" items="${vView.temas}">
+                    <option value="${tema.id}" id="${tema.id}" name="${tema.id}">${tema.pregunta}</option>
+        </c:forEach>
+        </select>
+        <div>
+        
+        </div>
+               
+        <p>
+            <input type="submit" value="Enviar" />
+        </p>
+    </form>
+    <p>
+         
+        
+            
+    </p>        
+    <p>
+        <a href="/ECP/jsp/home">Home jsp</a>
+    </p>
 </body>
 </html>

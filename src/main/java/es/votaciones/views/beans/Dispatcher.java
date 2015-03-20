@@ -96,7 +96,7 @@ public class Dispatcher extends HttpServlet {
 								break;
 								
 			case "eliminar":    EliminarViewBean eliminarView = new EliminarViewBean();
-	        
+	                            
 								request.setAttribute(action,eliminarView );
 								view=action;
 								break;

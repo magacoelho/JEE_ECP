@@ -10,7 +10,7 @@ import es.votaciones.persistence.models.entities.Tema;
 public class EliminarViewBean extends ViewBean {
 	 private List<Tema> temas;
 	 private String mensaje;
-	 private String claveAcceso;
+	 private Integer claveBorrado;
 	 private Integer idTema;
 	 
 	public Integer getIdTema() {
@@ -25,23 +25,27 @@ public class EliminarViewBean extends ViewBean {
 	public void setTemas(List<Tema> temas) {
 		this.temas = temas;
 	}
+	public Integer getClaveBorrado() {
+		return claveBorrado;
+	}
+	public void setClaveBorrado(Integer claveBorrado) {
+		this.claveBorrado = claveBorrado;
+	}
 	public String getMensaje() {
 		return mensaje;
 	}
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	public String getClaveAcceso() {
-		return claveAcceso;
-	}
-	public void setClaveAcceso(String claveAcceso) {
-		this.claveAcceso = claveAcceso;
-	}
+	
 	 
 	public void update() {
+		if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
         LogManager.getLogger(EliminarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
         this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
+		}
+
     }
 
     public String process() {
