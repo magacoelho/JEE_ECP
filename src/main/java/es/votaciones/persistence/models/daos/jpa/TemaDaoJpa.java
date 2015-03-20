@@ -25,14 +25,16 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	public void deleteVotosByTema(Tema tema) {
 		EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
    		List<Voto> votos= findAllVotosbyTemaId(tema.getId());
-		for (Voto voto : votos) {
-			try{
-			  entityManager.getTransaction().begin();
+   		try{
+   		   entityManager.getTransaction().begin();
+   		for (Voto voto : votos) {
 			  voto=entityManager.getReference(Voto.class,voto.getId());
 		      entityManager.remove(voto);   
-		      entityManager.getTransaction().commit();
+		      
 		      LogManager.getLogger(GenericDaoJpa.class).debug("delete: " + voto);
-		      entityManager.close();
+		    //  entityManager.close();
+   		   }
+   		    entityManager.getTransaction().commit();
 			}
 			catch(Exception e){
 				LogManager.getLogger(GenericDaoJpa.class).error("delete: " + e);
@@ -44,7 +46,7 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
         }
 		}
 		
-	}
+
 
 	@Override
 	public List<Voto> findAllVotosbyTemaId(Integer id) {
@@ -76,7 +78,9 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	}
    @Override
    public void deleteById(Integer id) {
+	   EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
 	   deleteVotosByTema(this.read(id));
-	super.deleteById(id);
+	   super.deleteById(id);
+	 entityManager.close();
 }
 }
