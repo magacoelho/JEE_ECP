@@ -1,5 +1,7 @@
 package es.votaciones.controllers;
 
-public interface EliminarTemaController {
+import es.votaciones.persistence.models.entities.Tema;
 
+public interface EliminarTemaController extends ListarTodosController {
+    public void eliminar(Tema tema);
 }
