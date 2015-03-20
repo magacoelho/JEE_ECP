@@ -10,7 +10,7 @@ public interface VotarController {
 
 	public abstract void votar(Voto voto);
 
-	public abstract List<Tema> todosTemas();
+	public abstract List<Tema> todosTemas(); 
 	
 	public abstract List<NivelEstudio> todosNivelesEstudio();
 
