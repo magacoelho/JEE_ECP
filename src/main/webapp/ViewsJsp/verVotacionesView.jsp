@@ -26,9 +26,8 @@
           <td>${temaSuma.suma}</td>
        </tr>   
      </c:forEach>
-	
-	
 	</table>
+	
 	<table>
        <tr>
           <th>Nivel</th>
@@ -43,10 +42,10 @@
        </tr>   
      </c:forEach>
     
-    
+    </table>
    
 	<p>
-		<a href="/Web/v1/home">Volver a Home</a>
-	</p>
+        <a href="/ECP/jsp/home">Home jsp</a>
+    </p>
 </body>
 </html>
