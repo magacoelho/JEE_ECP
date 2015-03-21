@@ -6,6 +6,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>PreEliminarView</title>
+<script>
+function ocultarMensaje() {
+    document.getElementById("mensaje").style.display='none';
+  
+}
+</script>
 </head>
 <body>
     <h1>
@@ -18,16 +24,16 @@
         
       
         <p> 
-           <label> Clave Borrado:</label><input type="text" value="" name="claveBorrado" id="claveBorrado"/>
+           <label> Clave Borrado:</label><input type="text" value=" ${vView.claveBorrado}" name="claveBorrado" id="claveBorrado" onfocus="ocultarMensaje()"/>
         </p>
                
         <p>
             <input type="submit" value="Enviar" />
         </p>
     </form>
-    <p>
+    <p id="mensaje">
          
-        
+      ${vView.mensaje}
             
     </p>        
     <p>

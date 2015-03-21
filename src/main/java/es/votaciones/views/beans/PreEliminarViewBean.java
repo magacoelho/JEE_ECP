@@ -30,17 +30,19 @@ public class PreEliminarViewBean extends ViewBean{
 	
 	public void update(){
 		if(this.claveBorrado!=null)
-		this.conAcceso= ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado);
+		 this.conAcceso= ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado);
+	     if(!this.isConAcceso()) 
+	    	 this.mensaje="Error en la clave";
+	    
 	}
 	
 	
 	public String process(){
+		 LogManager.getLogger(EliminarViewBean.class).debug(
+                 "Se accede a la capa de negocio para confirmar acceso " + this.claveBorrado);
 		if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
-	    	  LogManager.getLogger(EliminarViewBean.class).debug(
-	                 "Se accede a la capa de negocio para confirmar acceso " + this.claveBorrado);
-	         
-	        return "eliminar";}
+	          return "eliminar";}
 	    else
-			return "preeliminar";
+	    	return "preeliminar";
 	}
 }
