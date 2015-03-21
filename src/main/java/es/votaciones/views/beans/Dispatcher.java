@@ -42,10 +42,9 @@ public class Dispatcher extends HttpServlet {
 								view=action;
 								break;
 								
-			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
-	                            eliminarViewBean.setIdTema(new Integer(0));
-	                            eliminarViewBean.setClaveBorrado(new Integer(0));
-	                     		request.setAttribute(action,eliminarViewBean );
+			case "preeliminar": PreEliminarViewBean preEliminarViewBean = new PreEliminarViewBean();
+	                           
+	                     		request.setAttribute(action,preEliminarViewBean );
 								view=action;
 								break;
 							
@@ -91,18 +90,16 @@ public class Dispatcher extends HttpServlet {
 								break;
 						
 			case "verVotaciones":VerVotacionesViewBean verVotacionesView = new  VerVotacionesViewBean();
-						        
 						        request.setAttribute(action,verVotacionesView);
 								view=action;
 								break;
-								
+			case "preeliminar": PreEliminarViewBean preEliminarViewBean = new PreEliminarViewBean();
+							    preEliminarViewBean.setClaveBorrado(Integer.parseInt(request.getParameter("claveBorrado")));
+				                view=preEliminarViewBean.process();
+							    break;	
 			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
-			                   
-	                            if(eliminarViewBean.isConAcceso())	
-	                            	eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
-	                  
-	                                	 eliminarViewBean.setClaveBorrado(Integer.parseInt(request.getParameter("claveBorrado")));    	
-	                                request.setAttribute(action,eliminarViewBean);
+			                    eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
+	                            request.setAttribute(action,eliminarViewBean);
 								view=eliminarViewBean.process();
 								break;
 							

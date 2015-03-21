@@ -10,17 +10,7 @@ import es.votaciones.persistence.models.entities.Tema;
 
 public class EliminarViewBean extends ViewBean {
 	 private List<Tema> temas;
-	 private String mensaje;
-	 private Integer claveBorrado;
 	 private Integer idTema;
-	 private boolean conAcceso;
-	 
-	 public boolean isConAcceso() {
-		return conAcceso;
-	}
-	public void setConAcceso(boolean conAcceso) {
-		this.conAcceso = conAcceso;
-	}
 	public EliminarViewBean() {
 		 this.temas= new ArrayList<Tema>();
 	}
@@ -36,45 +26,22 @@ public class EliminarViewBean extends ViewBean {
 	public void setTemas(List<Tema> temas) {
 		this.temas = temas;
 	}
-	public Integer getClaveBorrado() {
-		return claveBorrado;
-	}
-	public void setClaveBorrado(Integer claveBorrado) {
-		this.claveBorrado = claveBorrado;
-	}
-	public String getMensaje() {
-		return mensaje;
-	}
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
-	}
+	
 	
 	 
 	public void update() {
 		
-		if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
-        {
-      	  LogManager.getLogger(EliminarViewBean.class).debug(
+		 LogManager.getLogger(EliminarViewBean.class).debug(
                     "Se accede a la capa de negocio para recuperar Temas");
-      	  this.conAcceso=true;
-            this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
-            }
-        
-        }
-		this.conAcceso=false;
-    }
+         this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
+     }
 
     public String process() {
-    	if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
+   
     	  LogManager.getLogger(EliminarViewBean.class).debug(
                  "Se accede a la capa de negocio para eliminar Tema: " + idTema);
           ControllerFactory.getControllerFactory().getEliminarTemaController().eliminar(idTema);
         return "home";
-       }
-    	else{
-    		
-      	    return "eliminar";
-      	}
     }
 	 
 }
