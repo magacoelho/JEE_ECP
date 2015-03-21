@@ -8,5 +8,17 @@ public class VotosPorTema {
 	  public VotosPorTema() {
 		
 	}
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+	public Integer getSuma() {
+		return suma;
+	}
+	public void setSuma(Integer suma) {
+		this.suma = suma;
+	}
 	  
 }

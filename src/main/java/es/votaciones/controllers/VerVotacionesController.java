@@ -1,5 +1,11 @@
 package es.votaciones.controllers;
 
-public interface VerVotacionesController {
+import java.util.List;
 
+import es.votaciones.persistence.models.utils.VotosPorNivel;
+import es.votaciones.persistence.models.utils.VotosPorTema;
+
+public interface VerVotacionesController extends ListarTodosController{
+    public List<VotosPorTema> votosPorTema();
+    public List<VotosPorNivel> votosPorNivel();
 }
