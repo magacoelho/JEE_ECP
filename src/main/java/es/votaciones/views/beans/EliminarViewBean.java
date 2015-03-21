@@ -13,7 +13,15 @@ public class EliminarViewBean extends ViewBean {
 	 private String mensaje;
 	 private Integer claveBorrado;
 	 private Integer idTema;
-	 public EliminarViewBean() {
+	 private boolean conAcceso;
+	 
+	 public boolean isConAcceso() {
+		return conAcceso;
+	}
+	public void setConAcceso(boolean conAcceso) {
+		this.conAcceso = conAcceso;
+	}
+	public EliminarViewBean() {
 		 this.temas= new ArrayList<Tema>();
 	}
 	public Integer getIdTema() {
@@ -44,19 +52,29 @@ public class EliminarViewBean extends ViewBean {
 	 
 	public void update() {
 		
-		//if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
-        LogManager.getLogger(EliminarViewBean.class).debug(
-                "Se accede a la capa de negocio para recuperar Temas");
-        this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
-		//}
-
+		if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
+        {
+      	  LogManager.getLogger(EliminarViewBean.class).debug(
+                    "Se accede a la capa de negocio para recuperar Temas");
+      	  this.conAcceso=true;
+            this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
+            }
+        
+        }
+		this.conAcceso=false;
     }
 
     public String process() {
-        LogManager.getLogger(EliminarViewBean.class).debug(
-                "Se accede a la capa de negocio para eliminar Tema: " + idTema);
-       ControllerFactory.getControllerFactory().getEliminarTemaController().eliminar(idTema);
+    	if(ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado)){
+    	  LogManager.getLogger(EliminarViewBean.class).debug(
+                 "Se accede a la capa de negocio para eliminar Tema: " + idTema);
+          ControllerFactory.getControllerFactory().getEliminarTemaController().eliminar(idTema);
         return "home";
+       }
+    	else{
+    		
+      	    return "eliminar";
+      	}
     }
 	 
 }

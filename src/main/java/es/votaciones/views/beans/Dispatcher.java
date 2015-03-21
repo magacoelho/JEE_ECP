@@ -43,7 +43,8 @@ public class Dispatcher extends HttpServlet {
 								break;
 								
 			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
-	                            
+	                            eliminarViewBean.setIdTema(new Integer(0));
+	                            eliminarViewBean.setClaveBorrado(new Integer(0));
 	                     		request.setAttribute(action,eliminarViewBean );
 								view=action;
 								break;
@@ -96,8 +97,12 @@ public class Dispatcher extends HttpServlet {
 								break;
 								
 			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
-	                            eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
-								request.setAttribute(action,eliminarViewBean);
+			                   
+	                            if(eliminarViewBean.isConAcceso())	
+	                            	eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
+	                  
+	                                	 eliminarViewBean.setClaveBorrado(Integer.parseInt(request.getParameter("claveBorrado")));    	
+	                                request.setAttribute(action,eliminarViewBean);
 								view=eliminarViewBean.process();
 								break;
 							
