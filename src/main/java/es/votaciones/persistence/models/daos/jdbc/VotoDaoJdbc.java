@@ -63,7 +63,7 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	
 	@Override
-	public List<Voto> votosPorNivel() {
+	public List<Voto> votosPorNivel(NivelEstudio nivelEstudio) {
 		// TODO Auto-generated method stub
 		return null;
 	}

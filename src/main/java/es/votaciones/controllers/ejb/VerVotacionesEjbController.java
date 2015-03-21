@@ -6,6 +6,7 @@ import java.util.List;
 import es.votaciones.controllers.VerVotacionesController;
 import es.votaciones.persistence.models.daos.DaoFactory;
 import es.votaciones.persistence.models.entities.Tema;
+import es.votaciones.persistence.models.entities.Voto;
 import es.votaciones.persistence.models.utils.NivelEstudio;
 import es.votaciones.persistence.models.utils.MediaPorNivel;
 import es.votaciones.persistence.models.utils.VotosPorTema;
@@ -33,7 +34,16 @@ public class VerVotacionesEjbController extends ListarTodosEjbController impleme
 	    for (NivelEstudio nivelEstudio : niveles) {
 	    	MediaPorNivel mpN= new MediaPorNivel();
 	    	mpN.setNivelEstudio(nivelEstudio);
-	    	mpN.setMedia(0.0);
+	    	List<Voto> votos=DaoFactory.getFactory().getVotoDao().votosPorNivel(nivelEstudio);
+	    	Integer numVotos=votos.size();
+	    	Double suma = new Double(0);
+	    	if(numVotos>0)
+	    	{ 
+	    		for (Voto voto : votos) {
+					suma+=voto.getValoracion();
+				}
+	    	}
+	    	mpN.setMedia(suma);
 	    	mediaPorNivel.add(mpN);
 		}
 		return mediaPorNivel;
