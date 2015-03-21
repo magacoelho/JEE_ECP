@@ -1,14 +1,8 @@
 package es.votaciones.views.beans;
 
 import org.apache.logging.log4j.LogManager;
-
-
-
-
-
 import es.votaciones.controllers.AgregarTemaController;
 import es.votaciones.controllers.ControllerFactory;
-import es.votaciones.controllers.ejb.AgregarTemaEjbController;
 import es.votaciones.persistence.models.entities.Tema;
 
 public class AgregarViewBean  extends ViewBean{
@@ -20,12 +14,9 @@ public class AgregarViewBean  extends ViewBean{
 		super();
 		
 	}
-
-
 	public Tema getTema() {
 		return tema;
 	}
-
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
@@ -34,7 +25,7 @@ public class AgregarViewBean  extends ViewBean{
 	public void update() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
-        this.tema = tema;//roles = new String[] {"uno", "dos", "tres"};
+        this.tema = tema;
     }
 
     public String process() {
@@ -42,10 +33,7 @@ public class AgregarViewBean  extends ViewBean{
                 "Se accede a la capa de negocio para registrar Tema: " + tema);
         AgregarTemaController agregarTemaController = ControllerFactory.getControllerFactory().getAgregarTemaController();
         agregarTemaController.agregar(tema);
-         //getControllerFactory().getAgregarTemaController().agregar(getTema());
+      
         return "home";
     }
-	
-	
-
 }
