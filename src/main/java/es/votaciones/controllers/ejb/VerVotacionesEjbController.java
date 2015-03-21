@@ -29,7 +29,7 @@ public class VerVotacionesEjbController extends ListarTodosEjbController impleme
 
 	@Override
 	public List<VotosPorNivel> votosPorNivel() {
-		// TODO Auto-generated method stub
+		List<VotosPorNivel> votosPorNivel = new ArrayList<VotosPorNivel>();>
 		return null;
 	}
 
