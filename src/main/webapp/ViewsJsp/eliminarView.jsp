@@ -41,10 +41,7 @@ function preguntaSeleccionada()  {
         <div>
         
         </div>
-        <p> 
-           <label> Pregunta:</label><input type="text" value="${vView.claveBorrado}" name="claveBorrado" id="claveBorrado"/>
-        </p>
-               
+         
         <p>
             <input type="submit" value="Enviar" />
         </p>

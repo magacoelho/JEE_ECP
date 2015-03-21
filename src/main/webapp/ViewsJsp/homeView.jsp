@@ -18,7 +18,7 @@
         <a href="/ECP/jsp/verVotaciones">Ver Votaciones</a>
     </p>
     <p>
-        <a href="/ECP/jsp/eliminar">Eliminar Tema</a>
+        <a href="/ECP/jsp/preeliminar">Eliminar Tema</a>
     </p>
    
 </body>

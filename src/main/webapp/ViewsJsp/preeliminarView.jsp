@@ -16,9 +16,9 @@
     <form action="/ECP/jsp/preeliminar" method="post">
         
         
-        </div>
+      
         <p> 
-           <label> Clave Borrado:</label><input type="text" value="${vView.claveBorrado}" name="claveBorrado" id="claveBorrado"/>
+           <label> Clave Borrado:</label><input type="text" value="" name="claveBorrado" id="claveBorrado"/>
         </p>
                
         <p>

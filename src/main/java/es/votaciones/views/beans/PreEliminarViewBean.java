@@ -29,7 +29,7 @@ public class PreEliminarViewBean extends ViewBean{
 	}
 	
 	public void update(){
-		
+		if(this.claveBorrado!=null)
 		this.conAcceso= ControllerFactory.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado);
 	}
 	
