@@ -38,24 +38,7 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 		return null;
 	}
 
-	@Override
-	public Voto read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(Voto voto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public List<Voto> findAll() {
 		List<Voto> list = new ArrayList<Voto>();
@@ -78,8 +61,37 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 				Voto.TEMA_ID, Tema.TABLE);
 	}
 
+	
 	@Override
-	public void create(Voto voto) {
+	public List<Voto> votosPorNivel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void create(Voto entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Voto read(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void update(Voto entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}

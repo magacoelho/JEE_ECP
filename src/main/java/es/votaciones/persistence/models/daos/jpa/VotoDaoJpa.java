@@ -11,4 +11,10 @@ public class VotoDaoJpa extends GenericDaoJpa<Voto, Integer> implements VotoDao 
 		super(Voto.class);
 	}
 
+	@Override
+	public List<Voto> votosPorNivel() {
+		
+		return null;
+	}
+
 }
