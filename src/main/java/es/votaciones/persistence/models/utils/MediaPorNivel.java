@@ -1,9 +1,9 @@
 package es.votaciones.persistence.models.utils;
 
-public class VotosPorNivel {
+public class MediaPorNivel {
      private NivelEstudio nivelEstudio;
      private Double media;
-     public VotosPorNivel() {
+     public MediaPorNivel() {
      }
 	public NivelEstudio getNivelEstudio() {
 		return nivelEstudio;
