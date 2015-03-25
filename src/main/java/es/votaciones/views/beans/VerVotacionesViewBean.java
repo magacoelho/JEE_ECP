@@ -2,12 +2,18 @@ package es.votaciones.views.beans;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
 import org.apache.logging.log4j.LogManager;
 
-import es.votaciones.controllers.ControllerFactory;
+
+
+
 import es.votaciones.persistence.models.utils.MediaPorNivel;
 import es.votaciones.persistence.models.utils.VotosPorTema;
 
+@ManagedBean
 public class VerVotacionesViewBean extends ViewBean{
 	
 	public List<VotosPorTema> votosPorTemas;
@@ -32,7 +38,7 @@ public class VerVotacionesViewBean extends ViewBean{
 	public void setMediasPorNivel(List<MediaPorNivel> mediasPorNivel) {
 		this.mediasPorNivel = mediasPorNivel;
 	}
-	
+	@PostConstruct
 	public void update(){
 		 LogManager.getLogger(VerVotacionesViewBean.class).debug(
                  "Se accede a la capa de negocio para recuperar Sumatorias");

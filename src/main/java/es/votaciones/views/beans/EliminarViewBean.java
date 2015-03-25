@@ -3,11 +3,14 @@ package es.votaciones.views.beans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
 import org.apache.logging.log4j.LogManager;
 
 import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.persistence.models.entities.Tema;
-
+@ManagedBean
 public class EliminarViewBean extends ViewBean {
 	 private List<Tema> temas;
 	 private Integer idTema;
@@ -28,7 +31,7 @@ public class EliminarViewBean extends ViewBean {
 	}
 	
 	
-	 
+	@PostConstruct 
 	public void update() {
 		
 		 LogManager.getLogger(EliminarViewBean.class).debug(

@@ -3,13 +3,17 @@ package es.votaciones.views.beans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
 import org.apache.logging.log4j.LogManager;
+
 import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.controllers.VotarController;
 import es.votaciones.persistence.models.entities.Tema;
 import es.votaciones.persistence.models.entities.Voto;
 import es.votaciones.persistence.models.utils.NivelEstudio;
-
+@ManagedBean
 public class VotarViewBean extends ViewBean{
 	private List<Tema> temas;
     private Tema tema;
@@ -49,7 +53,7 @@ public class VotarViewBean extends ViewBean{
 		this.tema = tema;
 	}
 	
-	
+	@PostConstruct
 	public void update() {
         LogManager.getLogger(VotarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");

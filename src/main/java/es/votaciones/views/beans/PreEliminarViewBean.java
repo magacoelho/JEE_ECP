@@ -1,9 +1,11 @@
 package es.votaciones.views.beans;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
 import org.apache.logging.log4j.LogManager;
 
-import es.votaciones.controllers.ControllerFactory;
-
+@ManagedBean
 public class PreEliminarViewBean extends ViewBean{
 
 	private String mensaje;
@@ -27,7 +29,7 @@ public class PreEliminarViewBean extends ViewBean{
 	public void setConAcceso(boolean conAcceso) {
 		this.conAcceso = conAcceso;
 	}
-	
+	@PostConstruct
 	public void update(){
 		if(this.claveBorrado!=null)
 		 this.conAcceso= this.getControllerFactory().getEliminarTemaController().validarClave(this.claveBorrado);
