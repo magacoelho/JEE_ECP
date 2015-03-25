@@ -7,11 +7,12 @@ import es.votaciones.controllers.VerVotacionesController;
 import es.votaciones.controllers.VotarController;
 
 public class ControllerEjbFactory extends ControllerFactory{
-
+    private VotarEjbController votarEjbController;
 	@Override
 	public VotarController getVotarController() {
-		
-		return new VotarEjbController();
+		if(this.votarEjbController==null)
+			this.votarEjbController =new VotarEjbController();
+		return this.votarEjbController;
 	}
 
 	@Override
