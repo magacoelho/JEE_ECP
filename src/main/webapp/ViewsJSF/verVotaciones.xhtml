@@ -6,25 +6,49 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Home JSF</title>
+	<title>Ver Votaciones</title>
 </h:head>
 <h:body>
-	<h1>Votaciones Home</h1>
-     <p>
-		<h:link value="Votar" outcome="votar" />
-	</p>
-	 <p>
-		<h:link value="Agregar" outcome="agregar" />
-	</p>
-	 <p>
-		<h:link value="Ver Votaciones" outcome="verVotaciones" />
-	</p>
-	 <p>
-		<h:link value="Eliminar" outcome="preeliminar" />
-	</p>
-	 <p>
-		<h:link value="HOme JSF " outcome="home" />
-	</p>
+	
+     <h1>
+		Vista de <b>Ver Votaciones</b>
+	</h1>
+	<c:set var="vView" scope="request" value="${verVotaciones}" />
+	<div>${vView.update()}</div>
+	<table>
+	   <tr>
+	      <th>Descripción</th>
+	      <th>Pregunta</th>
+	      <th>Votos</th>
+	   </tr>
+	   <c:forEach var="temaSuma" items="${vView.votosPorTemas}">
+      <tr>
+          <td>${temaSuma.tema.descripcion}</td>
+          <td>${temaSuma.tema.pregunta}</td>
+          <td>${temaSuma.suma}</td>
+       </tr>   
+     </c:forEach>
+	</table>
+	
+	<table>
+       <tr>
+          <th>Nivel</th>
+          <th>Media</th>
+       
+       </tr>
+       <c:forEach var="mediaNivel" items="${vView.mediasPorNivel}">
+      <tr>
+          <td>${mediaNivel.nivelEstudio}</td>
+          <td>${mediaNivel.media}</td>
+        
+       </tr>   
+     </c:forEach>
+    
+    </table>
+   
+	<p>
+        <a href="/JEE_ECP/jsp/home">Home jsp</a>
+    </p>
 </h:body>
 </html>
 

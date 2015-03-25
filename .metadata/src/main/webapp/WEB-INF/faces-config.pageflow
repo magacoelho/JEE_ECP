@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14273096414221" configfile="/ProjectVotacion/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14273096414221" configfile="/ProjectVotacion/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/home.xhtml" x="122" y="178" id="pf14273121106802" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14273121106803" path="/ViewsJSF/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/VerVotaciones.xhtml" x="338" y="178" id="pf14273121106804" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14273121106803" path="/ViewsJSF/verVotaciones.xhtml"/>
+  <links id="pf14273121106803" target="pf14273121106804" source="pf14273121106802" outcome="verVotaciones"/>
+</pageflow:Pageflow>
