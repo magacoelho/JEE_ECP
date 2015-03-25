@@ -19,7 +19,7 @@ function ocultarMensaje() {
     </h1>
     <c:set var="vView" scope="request" value="${preeliminar}" />
     <div>${vView.update()}</div>
-    <form action="/ECP/jsp/preeliminar" method="post">
+    <form action="/JEE_ECP/jsp/preeliminar" method="post">
         
         
       
@@ -36,8 +36,8 @@ function ocultarMensaje() {
       ${vView.mensaje}
             
     </p>        
-    <p>
-        <a href="/ECP/jsp/home">Home jsp</a>
+  <p>
+        <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
 </body>
 </html>

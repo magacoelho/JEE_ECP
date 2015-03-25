@@ -25,7 +25,7 @@ function preguntaSeleccionada()  {
 	</h1>
 	<c:set var="vView" scope="request" value="${votar}" />
 	<div>${vView.update()}</div>
-	<form action="/ECP/jsp/votar" method="post">
+	<form action="/JEE_ECP/jsp/votar" method="post">
 		<div>Temas:</div>
 		 <select name="tema" id="tema" onchange="temaSeleccionado();">
 		   <c:forEach var="tema" items="${vView.temas}">
@@ -64,7 +64,7 @@ function preguntaSeleccionada()  {
 			
 	</p>		
 	<p>
-        <a href="/ECP/jsp/home">Home jsp</a>
+        <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
 </body>
 </html>

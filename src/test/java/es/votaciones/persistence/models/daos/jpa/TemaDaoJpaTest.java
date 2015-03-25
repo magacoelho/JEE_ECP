@@ -28,7 +28,7 @@ public class TemaDaoJpaTest {
 	@BeforeClass
 	public static void arranque(){
 		
-		//DaoJpaFactory.dropAndCreateTables();
+		DaoJpaFactory.dropAndCreateTables();
 		DaoFactory.setFactory(new DaoJpaFactory());
 		 
    }

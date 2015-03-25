@@ -12,7 +12,7 @@
 		Vista de <b>Agregar Tema</b>
 	</h1>
 	
-    <form action="/ECP/jsp/agregar" method="post">
+    <form action="/JEE_ECP/jsp/agregar" method="post">
         <p>Temas:</p>
         <p> 
             <label> Descripción:</label><input type="text" value="" name="descripcion" id="descripcion"/>
@@ -25,7 +25,7 @@
         </p>
     </form>
     <p>
-        <a href="/ECP/jsp/home">Home jsp</a>
+        <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
 </body>
 </html>

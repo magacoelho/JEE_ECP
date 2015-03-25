@@ -45,7 +45,7 @@
     </table>
    
 	<p>
-        <a href="/ECP/jsp/home">Home jsp</a>
+        <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
 </body>
 </html>

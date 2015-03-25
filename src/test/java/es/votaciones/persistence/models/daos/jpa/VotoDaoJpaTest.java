@@ -33,7 +33,7 @@ public class VotoDaoJpaTest {
   
    @BeforeClass 
    public static void beforeClass(){
-	   //DaoJpaFactory.dropAndCreateTables();
+	   DaoJpaFactory.dropAndCreateTables();
 	   DaoFactory.setFactory(new DaoJpaFactory());
 	  }
    
