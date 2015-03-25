@@ -2,12 +2,15 @@ package es.votaciones.views.beans;
 
 import java.io.IOException;
 
+import javax.naming.ldap.ControlFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.votaciones.controllers.ControllerFactory;
+import es.votaciones.controllers.ejb.ControllerEjbFactory;
 import es.votaciones.persistence.models.entities.Tema;
 import es.votaciones.persistence.models.entities.Voto;
 import es.votaciones.persistence.models.utils.NivelEstudio;
@@ -17,8 +20,15 @@ import es.votaciones.persistence.models.utils.NivelEstudio;
 public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String PATH_ROOT_VIEW = "/ViewsJsp/";   
-    
+	private ControllerFactory controllerFactory;
    
+	@Override
+	public void init() throws ServletException {
+		 controllerFactory = new ControllerEjbFactory();
+		
+	}
+
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo().substring(1);
@@ -27,6 +37,7 @@ public class Dispatcher extends HttpServlet {
 		switch(action){
 		
 			case "votar":       VotarViewBean votarView = new VotarViewBean();
+			                    votarView.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,votarView);
 						        view=action;
 								break;
