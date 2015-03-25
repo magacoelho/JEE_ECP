@@ -10,6 +10,7 @@ public class ControllerEjbFactory extends ControllerFactory{
     private VotarEjbController votarEjbController;
     private VerVotacionesEjbController verVotacionesEjbController;
     private AgregarTemaController agregarTemaController;
+    private EliminarTemaEjbController eliminarTemaEjbController;
 	@Override
 	public VotarController getVotarController() {
 		if(this.votarEjbController==null)
@@ -33,8 +34,9 @@ public class ControllerEjbFactory extends ControllerFactory{
 
 	@Override
 	public EliminarTemaController getEliminarTemaController() {
-		
-		return  new EliminarTemaEjbController();
+		if(this.eliminarTemaEjbController==null)
+			this.eliminarTemaEjbController=new EliminarTemaEjbController();
+		return  eliminarTemaEjbController;
 	}
 
 }
