@@ -32,19 +32,21 @@ public class VerVotacionesEjbController extends ListarTodosEjbController impleme
 		List<MediaPorNivel> mediaPorNivel = new ArrayList<MediaPorNivel>();
 	    List<NivelEstudio> niveles = super.todosNivelesEstudio();
 	    for (NivelEstudio nivelEstudio : niveles) {
-	    	MediaPorNivel mpN= new MediaPorNivel();
-	    	mpN.setNivelEstudio(nivelEstudio);
+	    	MediaPorNivel mediaNivel= new MediaPorNivel();
+	    	mediaNivel.setNivelEstudio(nivelEstudio);
 	    	List<Voto> votos=DaoFactory.getFactory().getVotoDao().votosPorNivel(nivelEstudio);
 	    	Integer numVotos=votos.size();
 	    	Double suma = new Double(0);
+	    	mediaNivel.setMedia(new Double(0));
 	    	if(numVotos>0)
 	    	{ 
 	    		for (Voto voto : votos) {
 					suma+=voto.getValoracion();
 				}
+	    		mediaNivel.setMedia(suma/numVotos);	
 	    	}
-	    	mpN.setMedia(suma);
-	    	mediaPorNivel.add(mpN);
+	    	
+	    	mediaPorNivel.add(mediaNivel);
 		}
 		return mediaPorNivel;
 	}

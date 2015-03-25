@@ -22,6 +22,7 @@ public class Dispatcher extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo().substring(1);
+		request.setCharacterEncoding("UTF-8");
 		String view;
 		switch(action){
 		
