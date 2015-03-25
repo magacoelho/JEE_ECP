@@ -10,5 +10,22 @@
 			<default-locale>en</default-locale>
 		</locale-config>
 	</application>
+	<navigation-rule>
+		<from-view-id>/navigator.xhtml</from-view-id>
+			<navigation-case>
+			<from-outcome>r1</from-outcome>
+			<to-view-id>/rule1.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>r2</from-outcome>
+				<if>#{navigator.login}</if>
+				<to-view-id>/rule2.xhtml</to-view-id>
+		  </navigation-case>
+		<navigation-case>
+			<from-outcome>r2</from-outcome>
+			<if>#{!navigator.login}</if>
+			<to-view-id>/rule1.xhtml</to-view-id>
+		</navigation-case>
+		</navigation-rule>
 
 </faces-config>
