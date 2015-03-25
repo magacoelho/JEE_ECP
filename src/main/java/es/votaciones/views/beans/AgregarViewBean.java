@@ -1,10 +1,14 @@
 package es.votaciones.views.beans;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
 import org.apache.logging.log4j.LogManager;
+
 import es.votaciones.controllers.AgregarTemaController;
-import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.persistence.models.entities.Tema;
 
+@ManagedBean
 public class AgregarViewBean  extends ViewBean{
 	
 	private Tema tema;
@@ -21,7 +25,7 @@ public class AgregarViewBean  extends ViewBean{
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	
+	@PostConstruct
 	public void update() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
