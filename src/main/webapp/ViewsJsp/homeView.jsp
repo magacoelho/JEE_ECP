@@ -17,6 +17,9 @@
 	<p>
         <a href="/JEE_ECP/jsp/verVotaciones">Ver Votaciones</a>
     </p>
+    <p>
+        <a href="/JEE_ECP/jsp/preeliminar">Eliminar</a>
+    </p>
    <p>
         <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
