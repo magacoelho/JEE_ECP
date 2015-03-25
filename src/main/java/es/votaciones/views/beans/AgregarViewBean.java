@@ -31,7 +31,7 @@ public class AgregarViewBean  extends ViewBean{
     public String process() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para registrar Tema: " + tema);
-        AgregarTemaController agregarTemaController = ControllerFactory.getControllerFactory().getAgregarTemaController();
+        AgregarTemaController agregarTemaController = this.getControllerFactory().getAgregarTemaController();
         agregarTemaController.agregar(tema);
       
         return "home";

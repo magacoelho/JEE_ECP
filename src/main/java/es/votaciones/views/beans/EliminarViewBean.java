@@ -33,14 +33,14 @@ public class EliminarViewBean extends ViewBean {
 		
 		 LogManager.getLogger(EliminarViewBean.class).debug(
                     "Se accede a la capa de negocio para recuperar Temas");
-         this.temas = ControllerFactory.getControllerFactory().getEliminarTemaController().todosTemas();
+         this.temas = this.getControllerFactory().getEliminarTemaController().todosTemas();
      }
 
     public String process() {
    
     	  LogManager.getLogger(EliminarViewBean.class).debug(
                  "Se accede a la capa de negocio para eliminar Tema: " + idTema);
-          ControllerFactory.getControllerFactory().getEliminarTemaController().eliminar(idTema);
+          this.getControllerFactory().getEliminarTemaController().eliminar(idTema);
         return "home";
     }
 	 

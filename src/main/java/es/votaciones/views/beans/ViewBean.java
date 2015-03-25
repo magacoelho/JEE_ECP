@@ -11,17 +11,13 @@ public abstract class ViewBean {
 
     @ManagedProperty(value = "#{controllerFactory}")
     private ControllerFactory controllerFactory;
-    public ViewBean() {
-	    ControllerFactory.setControllerFactory(new ControllerEjbFactory());
-	    controllerFactory= ControllerFactory.getControllerFactory();	    
-	}
-
-    /*public void setControllerFactory(ControllerFactory controllerFactory) {
+   
+    public void setControllerFactory(ControllerFactory controllerFactory) {
         this.controllerFactory = controllerFactory;
     }
 
     protected ControllerFactory getControllerFactory() {
         return controllerFactory;
-    }*/
+    }
 
 }

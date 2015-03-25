@@ -36,8 +36,8 @@ public class VerVotacionesViewBean extends ViewBean{
 	public void update(){
 		 LogManager.getLogger(VerVotacionesViewBean.class).debug(
                  "Se accede a la capa de negocio para recuperar Sumatorias");
-		this.votosPorTemas=ControllerFactory.getControllerFactory().getverVotacionesController().votosPorTema();
-		this.mediasPorNivel=ControllerFactory.getControllerFactory().getverVotacionesController().mediaPorNivel();
+		this.votosPorTemas=this.getControllerFactory().getverVotacionesController().votosPorTema();
+		this.mediasPorNivel=this.getControllerFactory().getverVotacionesController().mediaPorNivel();
 	}
 	
 	public String process(){

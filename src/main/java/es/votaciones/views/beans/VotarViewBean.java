@@ -53,7 +53,7 @@ public class VotarViewBean extends ViewBean{
 	public void update() {
         LogManager.getLogger(VotarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
-       VotarController votarController = ControllerFactory.getControllerFactory().getVotarController();
+       VotarController votarController =this.getControllerFactory().getVotarController();
        this.temas =votarController.todosTemas();
        this.nivelesEstudio=votarController.todosNivelesEstudio();
     }
@@ -62,7 +62,7 @@ public class VotarViewBean extends ViewBean{
 		
         LogManager.getLogger(VotarViewBean.class).debug(
                 "Se accede a la capa de negocio para registrar Voto: " + voto);
-        VotarController votarController = ControllerFactory.getControllerFactory().getVotarController();
+        VotarController votarController = this.getControllerFactory().getVotarController();
         votarController.votar(voto);
         // aqui se invocaria a la capa de Negocio...... osea 
         return "home"; // el string q devuelve es la siguiente vista a mostrar
