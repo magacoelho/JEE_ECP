@@ -9,6 +9,7 @@ import es.votaciones.controllers.VotarController;
 public class ControllerEjbFactory extends ControllerFactory{
     private VotarEjbController votarEjbController;
     private VerVotacionesEjbController verVotacionesEjbController;
+    private AgregarTemaController agregarTemaController;
 	@Override
 	public VotarController getVotarController() {
 		if(this.votarEjbController==null)
@@ -25,7 +26,9 @@ public class ControllerEjbFactory extends ControllerFactory{
 
 	@Override
 	public AgregarTemaController getAgregarTemaController() {
-		return new AgregarTemaEjbController();
+		if(this.agregarTemaController==null)
+			this.agregarTemaController= new AgregarTemaEjbController();
+		return agregarTemaController;
 	}
 
 	@Override
