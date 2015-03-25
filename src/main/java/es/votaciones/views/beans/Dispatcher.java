@@ -44,17 +44,19 @@ public class Dispatcher extends HttpServlet {
 			
 			case "agregar":     AgregarViewBean agregarView = new AgregarViewBean();
 						        agregarView.setTema(new Tema());
+						        agregarView.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,agregarView);
 								view=action;
 								break;
 						
 			case "verVotaciones":VerVotacionesViewBean verVotacionesView = new  VerVotacionesViewBean();
-						        
+						        verVotacionesView.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,verVotacionesView);
 								view=action;
 								break;
 								
 			case "preeliminar": PreEliminarViewBean preEliminarViewBean = new PreEliminarViewBean();
+			                    preEliminarViewBean.setControllerFactory(controllerFactory);
 	                            preEliminarViewBean.setClaveBorrado(new Integer(0));
 	                     		request.setAttribute(action,preEliminarViewBean );
 								view=action;
@@ -88,6 +90,7 @@ public class Dispatcher extends HttpServlet {
 						        tem.setId(Integer.parseInt(request.getParameter("tema")));
 						        voto.setTema(tem);
 						        votarView.setVoto(voto);
+						        votarView.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,votarView);
 						        view=votarView.process();
 								break;
@@ -97,24 +100,28 @@ public class Dispatcher extends HttpServlet {
 			                    tema.setPregunta(request.getParameter("pregunta"));
 				                AgregarViewBean agregarViewBean = new AgregarViewBean();
 						        agregarViewBean.setTema(tema);
+						        agregarViewBean.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,agregarViewBean);
 								view=  agregarViewBean.process();
 								break;
 						
 			case "verVotaciones":VerVotacionesViewBean verVotacionesView = new  VerVotacionesViewBean();
+								verVotacionesView.setControllerFactory(controllerFactory);
 						        request.setAttribute(action,verVotacionesView);
 								view=action;
 								break;
 			case "preeliminar": PreEliminarViewBean preEliminarViewBean = new PreEliminarViewBean();
 							    preEliminarViewBean.setClaveBorrado(Integer.parseInt(request.getParameter("claveBorrado")));
-							    
+							    preEliminarViewBean.setControllerFactory(controllerFactory);
 							    request.setAttribute(action,preEliminarViewBean);
 				                view=preEliminarViewBean.process();
 				                EliminarViewBean eliminarViewBean1 = new EliminarViewBean();
+				                eliminarViewBean1.setControllerFactory(controllerFactory);
 				                request.setAttribute("eliminar",eliminarViewBean1);
 							    break;	
 			case "eliminar":    EliminarViewBean eliminarViewBean = new EliminarViewBean();
 			                    eliminarViewBean.setIdTema(Integer.parseInt(request.getParameter("tema")));
+			                    eliminarViewBean.setControllerFactory(controllerFactory);
 	                            request.setAttribute(action,eliminarViewBean);
 								view=eliminarViewBean.process();
 								break;
