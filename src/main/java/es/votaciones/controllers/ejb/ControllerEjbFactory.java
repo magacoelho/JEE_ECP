@@ -1,11 +1,15 @@
 package es.votaciones.controllers.ejb;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import es.votaciones.controllers.AgregarTemaController;
 import es.votaciones.controllers.ControllerFactory;
 import es.votaciones.controllers.EliminarTemaController;
 import es.votaciones.controllers.VerVotacionesController;
 import es.votaciones.controllers.VotarController;
-
+@ManagedBean(name = "controllerFactory")
+@SessionScoped
 public class ControllerEjbFactory extends ControllerFactory{
     private VotarEjbController votarEjbController;
     private VerVotacionesEjbController verVotacionesEjbController;

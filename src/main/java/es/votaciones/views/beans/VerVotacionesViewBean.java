@@ -16,11 +16,12 @@ import es.votaciones.persistence.models.utils.VotosPorTema;
 @ManagedBean
 public class VerVotacionesViewBean extends ViewBean{
 	
-	public List<VotosPorTema> votosPorTemas;
-	public List<MediaPorNivel> mediasPorNivel;
+	private List<VotosPorTema> votosPorTemas;
+	private  List<MediaPorNivel> mediasPorNivel;
 	
    public VerVotacionesViewBean() {
-	// TODO Auto-generated constructor stub
+	   LogManager.getLogger(VerVotacionesViewBean.class).debug(
+               "Instanciado el bean");
 	}
 	
 	public List<VotosPorTema> getVotosPorTemas() {

@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<!-- 	<ui:repeat var="o" value="#{collectionBean.list}" varStatus="status" offset="0" size="4" step="1">
-	<li class="#{!status.even?'par':''}">----------------</li>
+	<li class="#{!status.even?'par':''}"</li>
 	<h:outputText value=" y por último " rendered="#{status.last}"/>
 	<ui:fragment rendered="#{status.even}">
 	<li class="par">#{o.id}, #{o.name},#{o.quantity}</li>
@@ -23,23 +23,14 @@
 		Vista de <b>Ver Votaciones</b>
 	</h1>
 
-	<ui:repeat var="temaSuma" value="${verVotaciones.votosPorTemas}"></ui:repeat>
 	
-	<h:dataTable>
-	   <tr>
-	      <th>Descripción</th>
-	      <th>Pregunta</th>
-	      <th>Votos</th>
-	   </tr>
-	   <c:forEach var="temaSuma" items="${vView.votosPorTemas}">
-      <tr>
-          <td>${temaSuma.tema.descripcion}</td>
-          <td>${temaSuma.tema.pregunta}</td>
-          <td>${temaSuma.suma}</td>
-       </tr>   
-    </ui:repeat>
+	
+
 	</table> -->
-	<h:dataTable value="#{verVotaciones.votosPorTemas}" var="temaSuma">
+	
+
+    
+	<h:dataTable value="#{verVotacionesViewBean.votosPorTemas}" var="temaSuma">
       <h:column>
          <f:facet name="header">
             <h:outputText value="Descripción"></h:outputText>

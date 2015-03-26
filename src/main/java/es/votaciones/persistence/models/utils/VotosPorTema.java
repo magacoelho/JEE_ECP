@@ -1,7 +1,9 @@
 package es.votaciones.persistence.models.utils;
 
-import es.votaciones.persistence.models.entities.Tema;
+import javax.faces.bean.ManagedBean;
 
+import es.votaciones.persistence.models.entities.Tema;
+@ManagedBean
 public class VotosPorTema {
 	  private Tema tema;
 	  private Integer suma;
