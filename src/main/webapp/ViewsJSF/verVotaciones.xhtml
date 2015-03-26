@@ -9,13 +9,23 @@
 	<title>Ver Votaciones</title>
 </h:head>
 <h:body>
-	
+	<!-- 	<ui:repeat var="o" value="#{collectionBean.list}" varStatus="status" offset="0" size="4" step="1">
+	<li class="#{!status.even?'par':''}">----------------</li>
+	<h:outputText value=" y por último " rendered="#{status.last}"/>
+	<ui:fragment rendered="#{status.even}">
+	<li class="par">#{o.id}, #{o.name},#{o.quantity}</li>
+	</ui:fragment>
+	<ui:fragment  rendered="#{status.odd}">
+	<li>#{o.id}, #{o.name},#{o.quantity}</li>
+	</ui:fragment>
+	</ui:repeat>
      <h1>
 		Vista de <b>Ver Votaciones</b>
 	</h1>
-	<c:set var="vView" scope="request" value="${verVotaciones}" />
-	<div>${vView.update()}</div>
-	<table>
+
+	<ui:repeat var="temaSuma" value="${verVotaciones.votosPorTemas}"></ui:repeat>
+	
+	<h:dataTable>
 	   <tr>
 	      <th>Descripción</th>
 	      <th>Pregunta</th>
@@ -27,10 +37,29 @@
           <td>${temaSuma.tema.pregunta}</td>
           <td>${temaSuma.suma}</td>
        </tr>   
-     </c:forEach>
-	</table>
-	
-	<table>
+    </ui:repeat>
+	</table> -->
+	<h:dataTable value="#{verVotaciones.votosPorTemas}" var="temaSuma">
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="Descripción"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{temaSuma.tema.descripcion}"></h:outputText>
+      </h:column>
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="Pregunta"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{temaSuma.tema.pregunta}"></h:outputText>
+      </h:column>
+     <h:column>
+         <f:facet name="header">
+            <h:outputText value="Descripción"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{temaSuma.suma}"></h:outputText>
+      </h:column>
+   </h:dataTable>
+	<!-- <table>
        <tr>
           <th>Nivel</th>
           <th>Media</th>
@@ -48,7 +77,7 @@
    
 	<p>
         <a href="/JEE_ECP/jsp/home">Home jsp</a>
-    </p>
+    </p>-->
 </h:body>
 </html>
 

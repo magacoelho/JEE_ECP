@@ -11,23 +11,6 @@
 	<h1>
 		Vista de <b>Ver Votaciones</b>
 	</h1>
-	<ui:repeat var="o" value="#{collectionBean.list}" varStatus="status" 
-offset="0" size="4" step="1">
-<li class="#{!status.even?'par':''}">----------------</li>
-<h:outputText value=" y por último " rendered="#{status.last}"/>
-<ui:fragment rendered="#{status.even}">
-<li class="par">#{o.id}, #{o.name},#{o.quantity}</li>
-</ui:fragment>
-<ui:fragment  rendered="#{status.odd}">
-<li>#{o.id}, #{o.name},#{o.quantity}</li>
-</ui:fragment>
-</ui:repeat>
-	
-	
-	
-	
-	
-	
 	<c:set var="vView" scope="request" value="${verVotaciones}" />
 	<div>${vView.update()}</div>
 	<table>
