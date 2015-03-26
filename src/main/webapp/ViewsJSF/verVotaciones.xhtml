@@ -9,27 +9,6 @@
 	<title>Ver Votaciones</title>
 </h:head>
 <h:body>
-	<!-- 	<ui:repeat var="o" value="#{collectionBean.list}" varStatus="status" offset="0" size="4" step="1">
-	<li class="#{!status.even?'par':''}"</li>
-	<h:outputText value=" y por último " rendered="#{status.last}"/>
-	<ui:fragment rendered="#{status.even}">
-	<li class="par">#{o.id}, #{o.name},#{o.quantity}</li>
-	</ui:fragment>
-	<ui:fragment  rendered="#{status.odd}">
-	<li>#{o.id}, #{o.name},#{o.quantity}</li>
-	</ui:fragment>
-	</ui:repeat>
-     <h1>
-		Vista de <b>Ver Votaciones</b>
-	</h1>
-
-	
-	
-
-	</table> -->
-	
-
-    
 	<h:dataTable value="#{verVotacionesViewBean.votosPorTemas}" var="temaSuma">
       <h:column>
          <f:facet name="header">
@@ -50,25 +29,22 @@
          <h:outputText value="#{temaSuma.suma}"></h:outputText>
       </h:column>
    </h:dataTable>
-	<!-- <table>
-       <tr>
-          <th>Nivel</th>
-          <th>Media</th>
-       
-       </tr>
-       <c:forEach var="mediaNivel" items="${vView.mediasPorNivel}">
-      <tr>
-          <td>${mediaNivel.nivelEstudio}</td>
-          <td>${mediaNivel.media}</td>
-        
-       </tr>   
-     </c:forEach>
-    
-    </table>
    
-	<p>
-        <a href="/JEE_ECP/jsp/home">Home jsp</a>
-    </p>-->
+   <h:dataTable value="#{verVotacionesViewBean.mediasPorNivel}" var="mediaNivel">
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="Nivel"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{mediaNivel.nivelEstudio}"></h:outputText>
+      </h:column>
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="Media"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{mediaNivel.media}"></h:outputText>
+      </h:column>
+   </h:dataTable>
+
 </h:body>
 </html>
 
