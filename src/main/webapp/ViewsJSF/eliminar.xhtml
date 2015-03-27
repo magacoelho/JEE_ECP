@@ -13,28 +13,21 @@
 	<f:view locale="#{i18n.locale}">
 	<p:fieldset legend="#{msgs.menuEliminar} #{msgs.tema}" style="margin-bottom:20px">
 	   <h:form enctype="multipart/form-data">
-	      <p:carousel value="#{carouselView.cars}" headerText="Advanced" var="car" itemStyleClass="carItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
-        <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
-            <f:facet name="header">
-                <p:graphicImage name="demo/images/car/#{car.brand}.gif"/> 
-            </f:facet>
- 
+	      <p:carousel value="#{eliminarViewBean.temas}" headerText="Advanced" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
+           <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
             <h:outputText value="Id:" />
             <h:outputText value="#{car.id}" />
  
-            <h:outputText value="Year" />
-            <h:outputText value="#{car.year}" />
+            <h:outputText value="#{msgs.temaDescripcion}" />
+            <h:outputText value="#{tema.descripcion}" />
  
-            <h:outputText value="Color:" />
-            <h:outputText value="#{car.color}" style="color:#{car.color}"/>
- 
-            <h:outputText value="Price" />
-            <h:outputText value="$#{car.price}" />
- 
+            <h:outputText value="#{msgs.temaPregunta}" />
+            <h:outputText value="#{tema.pregunta}" />
+            
             <f:facet name="footer">
-                <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search">
-                    <f:setPropertyActionListener value="#{car}" target="#{carouselView.selectedCar}" />
-                </p:commandButton>
+              <!--  <p:commandButton update=":form:temaDetail" oncomplete="PF('temaDialog').show()" icon="ui-icon-search">
+                    <f:setPropertyActionListener value="#{tema}" target="#{carouselView.selectedTema}" />
+                </p:commandButton>-->
             </f:facet>
         </p:panelGrid>
     </p:carousel> 
@@ -42,11 +35,7 @@
 	      
 	      
 	      
-	      
-	   
-	        <p:outputLabel value="#{msgs.claveBorrado}: " for="claveBorrado"  />
-	        <p:inputText id="claveBorrado" name="claveBorrado" value="#{preEliminarViewBean.claveBorrado}"/>
-	        
+	     
 	        
 	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}"/>
 		</h:form>       
