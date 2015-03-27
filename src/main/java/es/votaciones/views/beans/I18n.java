@@ -19,12 +19,17 @@ public class I18n {
    }
     @PostConstruct
     public void inciializa(){
-    	 this.locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
+    
+       this.locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
+    	
+    			 
     }
     public Locale getLocale() {
         return this.locale;
     }
-
+   public void setLocale(Locale locale) {
+	this.locale = locale;
+}
    
     public String change(String language) {
         this.locale = new Locale(language);

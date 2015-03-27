@@ -10,18 +10,20 @@
 	<title>Agregar Tema</title>
 </h:head>
 <h:body>
-	<p:fieldset legend="Agregar tema" style="margin-bottom:20px">
+<f:view locale="#{i18n.locale}">
+	<p:fieldset legend="#{msgs.menuAgregar} #{msgs.tema}" style="margin-bottom:20px">
 	<h:panelGrid columns="2" cellpadding="5">
 	<h:form enctype="multipart/form-data">
-	        <p:outputLabel value="Descripción: " for="descripcion"  />
+	        <p:outputLabel value="#{msgs.temaDescripcion}:" for="descripcion"  />
 	        <p:inputText id="descripcion" name="descripcion" value="#{agregarViewBean.tema.descripcion}"/>
-	         <p:outputLabel value="Pregunta: " for="pregunta" />
+	         <p:outputLabel value="#{msgs.temaPregunta}: " for="pregunta" />
 	         <p:inputText id="pregunta" name="pregunta" value="#{agregarViewBean.tema.pregunta}" />
-	       <p:commandButton value="Enviar" ajax="false" action="#{agregarViewBean.process}"/>
+	       <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{agregarViewBean.process}"/>
 	</h:form>       
 	     </h:panelGrid>
     </p:fieldset>
     <p:link value="Home JSF " outcome="home" ></p:link>
+    </f:view>
 </h:body>
 </html>
 
