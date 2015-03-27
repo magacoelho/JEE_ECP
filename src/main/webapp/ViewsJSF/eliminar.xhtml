@@ -7,18 +7,20 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Eliminar Tema</title>
+	<title>#{msgs.menuEliminar} #{msgs.tema}</title>
 </h:head>
 <h:body>
 	<f:view locale="#{i18n.locale}">
-	<p:fieldset legend="Autenticación para Eliminar" style="margin-bottom:20px">
+	<p:fieldset legend="#{msgs.menuEliminar} #{msgs.tema}" style="margin-bottom:20px">
 	   <h:form enctype="multipart/form-data">
+	   
+	   
 	        <p:outputLabel value="#{msgs.claveBorrado}: " for="claveBorrado"  />
 	        <p:inputText id="claveBorrado" name="claveBorrado" value="#{preEliminarViewBean.claveBorrado}"/>
-	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{preEliminarViewBean.process}"/>
-	     
-	        <p:outputLabel value="#{preEliminarViewBean.mensaje}" />
-	</h:form>       
+	        
+	        
+	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}"/>
+		</h:form>       
     </p:fieldset>
      <p:link value="Home JSF " outcome="home" ></p:link>
   </f:view>
