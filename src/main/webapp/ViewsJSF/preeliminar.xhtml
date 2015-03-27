@@ -10,16 +10,17 @@
 	<title></title>
 </h:head>
 <h:body>
+<f:view locale="#{i18n.locale}">
 	<p:fieldset legend="Autenticación para Eliminar" style="margin-bottom:20px">
 	   <h:form enctype="multipart/form-data">
-	        <p:outputLabel value="Descripción: " for="descripcion"  />
-	        <p:inputText id="descripcion" name="descripcion" value="#{agregarViewBean.tema.descripcion}"/>
-	         <p:outputLabel value="Pregunta: " for="pregunta" />
-	         <p:inputText id="pregunta" name="pregunta" value="#{agregarViewBean.tema.pregunta}" />
-	       <p:commandButton value="Enviar" ajax="false" action="#{agregarViewBean.process}"/>
+	        <p:outputLabel value="#{msgs.claveBorrado}: " for="claveBorrado"  />
+	        <p:inputText id="claveBorrado" name="claveBorrado" value="#{preEliminarViewBean.claveBorrado}"/>
+	        <p:commandButton value="Enviar" ajax="false" action="#{preEliminarViewBean.process}"/>
+	       <p:outputLabel value="#{preEliminarViewBean.mensaje}" />
 	</h:form>       
     </p:fieldset>
      <p:link value="Home JSF " outcome="home" ></p:link>
+  </f:view>
 </h:body>
 </html>
 
