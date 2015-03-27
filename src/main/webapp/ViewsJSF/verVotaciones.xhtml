@@ -10,6 +10,7 @@
 	<title>Ver Votaciones</title>
 </h:head>
 <h:body>
+<p:fieldset legend="Votaciones por Temas" style="margin-bottom:20px">
 	<p:dataTable value="#{verVotacionesViewBean.votosPorTemas}" var="temaSuma">
       
        <p:column headerText="Descripción">
@@ -21,9 +22,9 @@
         <p:column headerText="Total">
         <h:outputText value="#{temaSuma.suma}"></h:outputText>
        </p:column>
-     
-    
-   </p:dataTable>
+     </p:dataTable>
+    </p:fieldset>
+   <p:fieldset legend="Media Votaciones por Niveles de Estudio" style="margin-bottom:20px">
    <p:dataTable value="#{verVotacionesViewBean.mediasPorNivel}" var="mediaNivel">
       
        <p:column headerText="Nivel">
@@ -33,9 +34,10 @@
         <p:column headerText="Media">
         <h:outputText value="#{mediaNivel.media}"></h:outputText>
        </p:column>
-     
-    
    </p:dataTable>
+    </p:fieldset>
+    <p:link value="Home JSF " outcome="home" ></p:link>
+  
  </h:body>
 </html>
 
