@@ -10,10 +10,18 @@
 	<title>Eliminar Tema</title>
 </h:head>
 <h:body>
-	<p:fieldset legend="Eliminar tema" style="margin-bottom:20px">
-	 
+	<f:view locale="#{i18n.locale}">
+	<p:fieldset legend="Autenticación para Eliminar" style="margin-bottom:20px">
+	   <h:form enctype="multipart/form-data">
+	        <p:outputLabel value="#{msgs.claveBorrado}: " for="claveBorrado"  />
+	        <p:inputText id="claveBorrado" name="claveBorrado" value="#{preEliminarViewBean.claveBorrado}"/>
+	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{preEliminarViewBean.process}"/>
+	     
+	        <p:outputLabel value="#{preEliminarViewBean.mensaje}" />
+	</h:form>       
     </p:fieldset>
-    <p:link value="Home JSF " outcome="home" ></p:link>
+     <p:link value="Home JSF " outcome="home" ></p:link>
+  </f:view>
 </h:body>
 </html>
 
