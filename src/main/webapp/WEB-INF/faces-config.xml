@@ -11,12 +11,37 @@
 		</locale-config>
 	</application>
 	<navigation-rule>
+		<from-view-id>/ViewsJSF/*</from-view-id>
+			<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/ViewsJSF/home.xhtml</to-view-id>
+			</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
 		<from-view-id>/ViewsJSF/home.xhtml</from-view-id>
 			<navigation-case>
 			<from-outcome>verVotaciones</from-outcome>
 			<to-view-id>/ViewsJSF/verVotaciones.xhtml</to-view-id>
 			</navigation-case>
-			
-		</navigation-rule>
+	</navigation-rule>
+	
+	<navigation-rule>
+	  <from-view-id>/ViewsJSF/agregar.xhtml</from-view-id>	
+	<navigation-case>
+		<from-action>#{agregarViewBean.process}</from-action>
+		<from-outcome>success</from-outcome>
+		<to-view-id>home</to-view-id>
+	</navigation-case>	
+	</navigation-rule>
+ 	<application>
+		<locale-config>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>i18n.messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>	
 
 </faces-config>

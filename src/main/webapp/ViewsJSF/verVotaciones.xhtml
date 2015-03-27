@@ -23,6 +23,17 @@
         <h:outputText value="#{temaSuma.suma}"></h:outputText>
        </p:column>
      </p:dataTable>
+     
+     <p:accordionPanel value="#{verVotacionesViewBean.votosPorTemas}" var="temaSuma">
+        <p:tab title="#{temaSuma.tema.descripcion}">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Pregunta:" style="font-weight: bold" />
+                <h:outputText value="#{temaSuma.tema.pregunta}" />
+ 				<h:outputText value="Votos:" style="font-weight: bold" />
+                <h:outputText value="#{temaSuma.suma}" />
+               </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
     </p:fieldset>
    <p:fieldset legend="Media Votaciones por Niveles de Estudio" style="margin-bottom:20px">
    <p:dataTable value="#{verVotacionesViewBean.mediasPorNivel}" var="mediaNivel">
