@@ -29,7 +29,7 @@ public class AgregarViewBean  extends ViewBean{
 	public void update() {
         LogManager.getLogger(AgregarViewBean.class).debug(
                 "Se accede a la capa de negocio para recuperar Temas");
-        this.tema = tema;
+        this.tema = new Tema();
     }
 
     public String process() {

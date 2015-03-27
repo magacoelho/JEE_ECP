@@ -12,9 +12,13 @@
 <h:body>
 	<p:fieldset legend="Agregar tema" style="margin-bottom:20px">
 	<h:panelGrid columns="2" cellpadding="5">
-	        <p:outputLabel value="Descripción: " for="descripcion" />
-	        <p:inputText id="descripcion" name="descripcion" value=""  />
-	       
+	<h:form enctype="multipart/form-data">
+	        <p:outputLabel value="Descripción: " for="descripcion"  />
+	        <p:inputText id="descripcion" name="descripcion" value="#{agregarViewBean.tema.descripcion}"/>
+	         <p:outputLabel value="Pregunta: " for="pregunta" />
+	         <p:inputText id="pregunta" name="pregunta" value="#{agregarViewBean.tema.pregunta}" />
+	       <p:commandButton value="Enviar" ajax="false" action="#{agregarViewBean.process}"/>
+	</h:form>       
 	     </h:panelGrid>
     </p:fieldset>
     <p:link value="Home JSF " outcome="home" ></p:link>
