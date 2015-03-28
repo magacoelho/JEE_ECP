@@ -29,6 +29,18 @@
            
             <h:outputText value="#{msgs.nivelEstudio}" />
             <p:inputText value="#{votarViewBean.voto.nivelEstudio}"  />
+            <p:outputLabel for="nivel" value="#{msgs.nivelEstudio}" />
+               <p:selectOneListbox id="nivel" value="#{votarViewBean.nivelesEstudio}"  var="t" filter="true" filterMatchMode="contains">
+                    <f:selectItems value="#{selectOneView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
+         
+                    <p:column>
+                        <h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+                    </p:column>
+         
+                    <p:column>
+                        <h:outputText value="#{t.displayName}" />
+                    </p:column>
+                </p:selectOneListbox>
            
             <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{votarViewBean.process}">
               <f:setPropertyActionListener value="#{tema}" target="#{votarViewBean.voto.tema}" />
