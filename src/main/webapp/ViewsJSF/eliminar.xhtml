@@ -15,8 +15,7 @@
 	   <h:form enctype="multipart/form-data">
 	      <p:carousel value="#{eliminarViewBean.temas}" headerText="Advanced" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
            <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
-           <!--   <h:outputText value="Id:" />-->
-            <h:inputHidden value="#{tema.id}" />
+           
  
             <h:outputText value="#{msgs.temaDescripcion}" />
             <p:outputLabel value="#{tema.descripcion}" name="descripcion" />
@@ -25,23 +24,14 @@
             <p:outputLabel value="#{tema.pregunta}"  name="pregunta"/>
             
             <f:facet name="footer">
+             <h:inputHidden value="#{tema.id}" />
             <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}">
               <f:setPropertyActionListener value="#{tema.id}" target="#{eliminarViewBean.idTema}" />
             </p:commandButton>  
-               <!--   <p:commandButton update=":form:btnEnviar" oncomplete="PF('temaDialog').show()" icon="ui-icon-search">
-                    <f:setPropertyActionListener value="#{tema.id}" target="#{btnEnviar.selectedTema}" />
-                </p:commandButton>-->
-            </f:facet>
+           </f:facet>
         </p:panelGrid>
     </p:carousel> 
-	      
-	      
-	      
-	      
-	     
-	        
-	        
-		</h:form>       
+	</h:form>       
     </p:fieldset>
      <p:link value="Home JSF " outcome="home" ></p:link>
   </f:view>
