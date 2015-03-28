@@ -7,15 +7,17 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Votar</title>
+	<title>#{msgs.menuVotar}</title>
 </h:head>
 <h:body>
-	<p:fieldset legend="Votaciones" style="margin-bottom:20px">
+<f:view locale="#{i18n.locale}">
+	<p:fieldset legend="#{msgs.menuVotar" style="margin-bottom:20px">
 		
         
 	 <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
     </p:fieldset>
    <p:link value="Home JSF " outcome="home" ></p:link>
+</f:view>
 </h:body>
 </html>
 

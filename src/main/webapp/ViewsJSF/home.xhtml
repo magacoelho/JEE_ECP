@@ -10,6 +10,7 @@
 	<title>#{msgs.menuInicio} JSF</title>
 </h:head>
 <h:body>
+<f:view locale="#{i18n.locale}">
    <p:fieldset legend="#{msgs.tituloGeneral} #{msgs.menuInicio}" style="margin:20px">
    <p:menu>
     <p:menuitem value="#{msgs.menuVotar}" outcome="votar" />
@@ -19,6 +20,7 @@
     <p:menuitem value="#{msgs.menuInicio}" url="/"  />
    </p:menu>
 </p:fieldset>
+</f:view>
 </h:body>
 </html>
 
