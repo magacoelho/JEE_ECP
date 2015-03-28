@@ -13,7 +13,7 @@
 <f:view locale="#{i18n.locale}">
 	<p:fieldset legend="#{msgs.menuVotar" style="margin-bottom:20px">
 		<h:form enctype="multipart/form-data">
-          <p:carousel value="#{eliminarViewBean.temas}" headerText="#{msgs.tema}" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
+          <p:carousel value="#{votarViewBean.temas}" headerText="#{msgs.tema}" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
            <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
         
             <h:outputText value="#{msgs.temaDescripcion}" />
@@ -21,20 +21,37 @@
  
             <h:outputText value="#{msgs.temaPregunta}" />
             <p:outputLabel value="#{tema.pregunta}"  name="pregunta"/>
+           
+            <h:outputText value="#{msgs.votoValoracion}" />
+            <p:inputText value="#{votarViewBean.voto.valoracion}" name="valoracion" />
             
+            <p:outputLabel for="advanced" value="Advanced:" />
+		        <p:selectOneListbox id="advanced" value="#{selectOneView.theme}" converter="themeConverter" var="t" filter="true" filterMatchMode="contains">
+		            <f:selectItems value="#{selectOneView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
+		 
+		            <p:column>
+		                <h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+		            </p:column>
+		 
+		            <p:column>
+		                <h:outputText value="#{t.displayName}" />
+		            </p:column>
+		        </p:selectOneListbox>
             <f:facet name="footer">
              <h:inputHidden value="#{tema.id}" />
-            <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}">
-              <f:setPropertyActionListener value="#{tema.id}" target="#{eliminarViewBean.idTema}" />
+            <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{votarViewBean.process}">
+              <f:setPropertyActionListener value="#{tema.id}" target="#{votarViewBean.tema.id}" />
             </p:commandButton>  
            </f:facet>
         </p:panelGrid>
-    </p:carousel> 
+    </p:carousel>
+     
+     
     </h:form>  
         
-	 <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+	 <p:commandButton value="#{msgs.botonEnviar}" update="display" icon="ui-icon-check" />
     </p:fieldset>
-   <p:link value="Home JSF " outcome="home" ></p:link>
+   <p:link value="#{msgs.menuInicioJSF}" outcome="home" ></p:link>
 </f:view>
 </h:body>
 </html>
