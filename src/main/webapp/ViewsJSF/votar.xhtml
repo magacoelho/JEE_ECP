@@ -21,20 +21,15 @@
  
             <h:outputText value="#{msgs.temaPregunta}" />
             <p:outputLabel value="#{tema.pregunta}"  name="pregunta"/>
+            <h:outputText value="#{msgs.votoValoracion}" />
+             <p:inputText value="#{votarViewBean.voto.valoracion}"  />
+            <p:outputLabel for="nivel" value="#{msgs.nivelEstudio}" />
+                  <p:selectOneMenu id="nivel" value="#{votarViewBean.voto.nivelEstudio}" effect="fold" editable="false">
+                        <f:selectItems value="#{votarViewBean.nivelesEstudio}" />
+                 </p:selectOneMenu>
             <f:facet name="footer">
              <h:inputHidden value="#{tema.id}" />
-             
-             <h:outputText value="#{msgs.votoValoracion}" />
-             <p:inputText value="#{votarViewBean.voto.valoracion}"  />
-           
-         
-                <p:outputLabel for="nivel" value="#{msgs.nivelEstudio}" />
-				  <p:selectOneMenu id="nivel" value="#{votarViewBean.voto.nivelEstudio}" effect="fold" editable="false">
-			            <f:selectItems value="#{votarViewBean.nivelesEstudio}" />
-			     </p:selectOneMenu>
- 
-           
-            <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{votarViewBean.process}">
+                  <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{votarViewBean.process}">
               <f:setPropertyActionListener value="#{tema}" target="#{votarViewBean.voto.tema}" />
               <f:setPropertyActionListener value="#{votarViewBean.voto.valoracion}" target="#{votarViewBean.voto.valoracion}" />
                <f:setPropertyActionListener value="#{votarViewBean.voto.nivelEstudio}" target="#{votarViewBean.voto.nivelEstudio}" />
@@ -45,6 +40,11 @@
             
         </p:panelGrid>
        </p:carousel>
+       <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
+        
+       
+       
+       </p:panelGrid>
  
        
      </h:form>  
