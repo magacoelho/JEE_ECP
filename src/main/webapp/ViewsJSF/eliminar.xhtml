@@ -15,18 +15,21 @@
 	   <h:form enctype="multipart/form-data">
 	      <p:carousel value="#{eliminarViewBean.temas}" headerText="Advanced" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
            <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
-            <h:outputText value="Id:" />
-            <h:outputText value="#{tema.id}" />
+           <!--   <h:outputText value="Id:" />-->
+            <h:inputHidden value="#{tema.id}" />
  
             <h:outputText value="#{msgs.temaDescripcion}" />
-            <p:inputText value="#{tema.descripcion}" name="descripcion" />
+            <p:outputLabel value="#{tema.descripcion}" name="descripcion" />
  
             <h:outputText value="#{msgs.temaPregunta}" />
-            <p:inputText value="#{tema.pregunta}"  name="pregunta"/>
+            <p:outputLabel value="#{tema.pregunta}"  name="pregunta"/>
             
             <f:facet name="footer">
-              <!--  <p:commandButton update=":form:temaDetail" oncomplete="PF('temaDialog').show()" icon="ui-icon-search">
-                    <f:setPropertyActionListener value="#{tema}" target="#{carouselView.selectedTema}" />
+            <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}">
+              <f:setPropertyActionListener value="#{tema.id}" target="#{eliminarViewBean.idTema}" />
+            </p:commandButton>  
+               <!--   <p:commandButton update=":form:btnEnviar" oncomplete="PF('temaDialog').show()" icon="ui-icon-search">
+                    <f:setPropertyActionListener value="#{tema.id}" target="#{btnEnviar.selectedTema}" />
                 </p:commandButton>-->
             </f:facet>
         </p:panelGrid>
@@ -37,7 +40,7 @@
 	      
 	     
 	        
-	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}"/>
+	        
 		</h:form>       
     </p:fieldset>
      <p:link value="Home JSF " outcome="home" ></p:link>
