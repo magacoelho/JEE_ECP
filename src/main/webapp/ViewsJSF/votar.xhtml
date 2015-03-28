@@ -12,7 +12,25 @@
 <h:body>
 <f:view locale="#{i18n.locale}">
 	<p:fieldset legend="#{msgs.menuVotar" style="margin-bottom:20px">
-		
+		<h:form enctype="multipart/form-data">
+          <p:carousel value="#{eliminarViewBean.temas}" headerText="#{msgs.tema}" var="tema" itemStyleClass="temaItem" numVisible="1" easing="easeOutBounce" styleClass="carouselAdvanced">
+           <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
+        
+            <h:outputText value="#{msgs.temaDescripcion}" />
+            <p:outputLabel value="#{tema.descripcion}" name="descripcion" />
+ 
+            <h:outputText value="#{msgs.temaPregunta}" />
+            <p:outputLabel value="#{tema.pregunta}"  name="pregunta"/>
+            
+            <f:facet name="footer">
+             <h:inputHidden value="#{tema.id}" />
+            <p:commandButton id="btnEnviar" value="#{msgs.botonEnviar}" ajax="false" action="#{eliminarViewBean.process}">
+              <f:setPropertyActionListener value="#{tema.id}" target="#{eliminarViewBean.idTema}" />
+            </p:commandButton>  
+           </f:facet>
+        </p:panelGrid>
+    </p:carousel> 
+    </h:form>  
         
 	 <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
     </p:fieldset>
