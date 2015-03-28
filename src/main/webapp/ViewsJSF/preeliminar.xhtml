@@ -16,11 +16,10 @@
 	        <p:outputLabel value="#{msgs.claveBorrado}: " for="claveBorrado"  />
 	        <p:inputText id="claveBorrado" name="claveBorrado" value="#{preEliminarViewBean.claveBorrado}"/>
 	        <p:commandButton value="#{msgs.botonEnviar}" ajax="false" action="#{preEliminarViewBean.process}"/>
-	     
 	        <p:outputLabel value="#{preEliminarViewBean.mensaje}" />
 	</h:form>       
     </p:fieldset>
-     <p:link value="Home JSF " outcome="home" ></p:link>
+     <p:link value="#{msgs.menuInicio} JSF " outcome="home" ></p:link>
   </f:view>
 </h:body>
 </html>
