@@ -7,10 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Home JSF</title>
+	<title>#{msgs.menuInicio} JSF</title>
 </h:head>
 <h:body>
-   <p:fieldset legend="Votaciones Home" style="margin:20px">
+   <p:fieldset legend="#{msgs.tituloGeneral} #{msgs.menuInicio}" style="margin:20px">
    <p:menu>
     <p:menuitem value="#{msgs.menuVotar}" outcome="votar" />
     <p:menuitem value="#{msgs.menuAgregar}" outcome="agregar" icon="ui-icon-disk" />
