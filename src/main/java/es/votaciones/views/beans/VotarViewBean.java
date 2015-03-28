@@ -60,6 +60,10 @@ public class VotarViewBean extends ViewBean{
        VotarController votarController =this.getControllerFactory().getVotarController();
        this.temas =votarController.todosTemas();
        this.nivelesEstudio=votarController.todosNivelesEstudio();
+       this.voto= new Voto();
+       this.tema= new Tema();
+      
+       
     }
 	
 	public String  process(){
