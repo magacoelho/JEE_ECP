@@ -24,6 +24,11 @@
            
             <h:outputText value="#{msgs.votoValoracion}" />
             <p:inputText value="#{votarViewBean.voto.valoracion}" name="valoracion" />
+			   <h:panelGrid columns="1" style="margin-bottom: 10px">
+			        <h:outputText id="output" value="Set ratio to %#{sliderView.number2}" />
+			        <h:inputHidden id="txt2" value="#{sliderView.number2}" />
+			        <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Set ratio to %{value}" />
+			    </h:panelGrid>
             
             <p:outputLabel for="advanced" value="Advanced:" />
 		        <p:selectOneListbox id="advanced" value="#{selectOneView.theme}" converter="themeConverter" var="t" filter="true" filterMatchMode="contains">
