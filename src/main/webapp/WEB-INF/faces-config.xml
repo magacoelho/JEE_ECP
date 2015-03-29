@@ -12,14 +12,25 @@
 	</application>
 	<navigation-rule>
 		<from-view-id>/ViewsJSF/home.xhtml</from-view-id>
-		  <navigation-case>
-			<from-outcome>home</from-outcome>
-			<to-view-id>/ViewsJSF/home.xhtml</to-view-id>
-		</navigation-case>
-	 
-		<navigation-case>
+		 <navigation-case>
+            <from-outcome>votar</from-outcome>
+            <to-view-id>/ViewsJSF/votar.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>agregar</from-outcome>
+            <to-view-id>/ViewsJSF/agregar.xhtml</to-view-id>
+        </navigation-case>
+	    <navigation-case>
 			<from-outcome>verVotaciones</from-outcome>
 			<to-view-id>/ViewsJSF/verVotaciones.xhtml</to-view-id>
+		</navigation-case>
+        <navigation-case>
+            <from-outcome>preeeliminar</from-outcome>
+            <to-view-id>/ViewsJSF/preeliminar.xhtml</to-view-id>
+        </navigation-case>
+		  <navigation-case>
+			<from-outcome>/</from-outcome>
+			<to-view-id>/index.html</to-view-id>
 		</navigation-case>
 			
 		<!-- Por defecto -->
@@ -30,12 +41,28 @@
 	
 	<navigation-rule>
 	  <from-view-id>/ViewsJSF/agregar.xhtml</from-view-id>	
-	<navigation-case>
-		<from-action>#{agregarViewBean.process}</from-action>
-		<from-outcome>success</from-outcome>
-		<to-view-id>home</to-view-id>
-	</navigation-case>	
+		<navigation-case>
+			<from-action>#{agregarViewBean.process}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>home</to-view-id>
+		</navigation-case>	
+		<!-- Por defecto -->
+        <navigation-case>
+            <to-view-id>/ViewsJSF/agregar.xhtml</to-view-id>
+        </navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+      <from-view-id>/ViewsJSF/verVotaciones.xhtml</from-view-id>  
+        <navigation-case>
+            <from-action>#{verVotacionesViewBean.process}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>home</to-view-id>
+        </navigation-case>  
+        <!-- Por defecto -->
+        <navigation-case>
+            <to-view-id>/ViewsJSF/verVotaciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
  	<application>
 		<locale-config>
 			<default-locale>es</default-locale>
