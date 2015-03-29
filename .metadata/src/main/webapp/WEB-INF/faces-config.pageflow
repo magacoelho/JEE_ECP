@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14273096414221" configfile="/JEE_ECP/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/home.xhtml" x="122" y="1330" id="pf142763669901525" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" outlinks="pf142763897976828 pf142763897976829 pf142763897976830 pf142763897976831 pf142763897976832 pf142763897976833" inlinks="pf142763897976833" path="/ViewsJSF/home.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1906" id="pf142763669901527" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/votar.xhtml" x="338" y="562" id="pf142763897976834" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf142763897976828" path="/ViewsJSF/votar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/agregar.xhtml" x="338" y="946" id="pf142763897976835" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf142763897976836 pf142763897976837" inlinks="pf142763897976829 pf142763897976837" path="/ViewsJSF/agregar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/verVotaciones.xhtml" x="338" y="1330" id="pf142763897976838" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf142763897976839 pf142763897976840" inlinks="pf142763897976830 pf142763897976840" path="/ViewsJSF/verVotaciones.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/preeliminar.xhtml" x="338" y="1714" id="pf142763897976841" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" outlinks="pf142763897976842 pf142763897976843" inlinks="pf142763897976831 pf142763897976843" path="/ViewsJSF/preeliminar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="index.html" x="338" y="2098" id="pf142763897976844" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf142763897976832" path="/index.html"/>
-  <nodes xsi:type="pageflow:PFPage" name="home" x="554" y="946" id="pf142763897976845" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf142763897976836 pf142763897976839 pf142763897976846" path="home"/>
-  <nodes xsi:type="pageflow:PFPage" name="eliminar" x="554" y="1714" id="pf142763897976847" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf142763897976842" path="eliminar"/>
-  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/eliminar.xhtml" x="338" y="178" id="pf142763897976848" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf142763897976846 pf142763897976849" inlinks="pf142763897976849" path="/ViewsJSF/eliminar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/home.xhtml" x="338" y="946" id="pf142763669901525" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf142763897976828 pf142763897976829 pf142763897976830 pf142763897976831 pf142763897976832 pf142763897976833" inlinks="pf142763897976833 pf142764221395550" path="/ViewsJSF/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="370" id="pf142763669901527" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/votar.xhtml" x="554" y="178" id="pf142763897976834" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf142763897976828" path="/ViewsJSF/votar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/agregar.xhtml" x="554" y="1330" id="pf142763897976835" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf142763897976836 pf142763897976837" inlinks="pf142763897976829 pf142763897976837" path="/ViewsJSF/agregar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/verVotaciones.xhtml" x="122" y="946" id="pf142763897976838" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf142763897976840 pf142764221395550" inlinks="pf142763897976830 pf142763897976840" path="/ViewsJSF/verVotaciones.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/preeliminar.xhtml" x="554" y="562" id="pf142763897976841" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" outlinks="pf142763897976842 pf142763897976843" inlinks="pf142763897976831 pf142763897976843" path="/ViewsJSF/preeliminar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.html" x="554" y="1714" id="pf142763897976844" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf142763897976832" path="/index.html"/>
+  <nodes xsi:type="pageflow:PFPage" name="home" x="770" y="1138" id="pf142763897976845" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf142763897976836 pf142763897976846" path="home"/>
+  <nodes xsi:type="pageflow:PFPage" name="eliminar" x="770" y="562" id="pf142763897976847" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf142763897976842" path="eliminar"/>
+  <nodes xsi:type="pageflow:PFPage" name="ViewsJSF/eliminar.xhtml" x="554" y="946" id="pf142763897976848" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf142763897976846 pf142763897976849" inlinks="pf142763897976849" path="/ViewsJSF/eliminar.xhtml"/>
   <links id="pf142763897976828" target="pf142763897976834" source="pf142763669901525" outcome="votar"/>
   <links id="pf142763897976829" target="pf142763897976835" source="pf142763669901525" outcome="agregar"/>
   <links id="pf142763897976830" target="pf142763897976838" source="pf142763669901525" outcome="verVotaciones"/>
   <links id="pf142763897976831" target="pf142763897976841" source="pf142763669901525" outcome="preeeliminar"/>
   <links id="pf142763897976832" target="pf142763897976844" source="pf142763669901525" outcome="/"/>
   <links id="pf142763897976836" target="pf142763897976845" source="pf142763897976835" outcome="success" fromaction="#{agregarViewBean.process}"/>
-  <links id="pf142763897976839" target="pf142763897976845" source="pf142763897976838" outcome="home"/>
   <links id="pf142763897976842" target="pf142763897976847" source="pf142763897976841" outcome="success" fromaction="#{preeliminarViewBean.process}"/>
   <links id="pf142763897976846" target="pf142763897976845" source="pf142763897976848" outcome="success" fromaction="#{preeliminarViewBean.process}"/>
+  <links id="pf142764221395550" target="pf142763669901525" source="pf142763897976838" outcome="home"/>
   <links id="pf142763897976833" target="pf142763669901525" source="pf142763669901525">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
