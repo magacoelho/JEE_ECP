@@ -78,9 +78,8 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s,%s,%s) VALUES ('%s', %s, %s, %s)";
 	@Override
 	public void create(Voto voto) {
-		this.updateSql(String.format(SQL_INSERT, Voto.TABLE, Voto.IP, Voto.NIVEL_ESTUDIO, Voto.VALORACION, Voto.TEMA_ID, voto.getIp(), voto.getNivelEstudio().ordinal(), voto.getValoracion(), voto.getTema().getId()));
-		 voto.setId(this.autoId());
-		
+		this.updateSql(String.format(VotoDaoJdbc.SQL_INSERT, Voto.TABLE,  Voto.IP, Voto.NIVEL_ESTUDIO, Voto.VALORACION, Voto.TEMA_ID, voto.getIp(), voto.getNivelEstudio().ordinal(), voto.getValoracion(), voto.getTema().getId()));
+		voto.setId(this.autoId());
 	}
 
 
