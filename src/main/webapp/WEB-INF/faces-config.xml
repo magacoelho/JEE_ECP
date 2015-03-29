@@ -54,9 +54,8 @@
 	<navigation-rule>
       <from-view-id>/ViewsJSF/verVotaciones.xhtml</from-view-id>  
         <navigation-case>
-            <from-action>#{verVotacionesViewBean.process}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>home</to-view-id>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/ViewsJSF/home.xhtml</to-view-id>
         </navigation-case>  
         <!-- Por defecto -->
         <navigation-case>
