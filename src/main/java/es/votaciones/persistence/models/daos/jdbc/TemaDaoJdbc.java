@@ -32,7 +32,7 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s) VALUES ('%s','%s')";
 	@Override
 	public void create(Tema tema) {
-		  this.updateSql(String.format(SQL_INSERT, Tema.TABLE, Tema.DESCRIPCION, Tema.PREGUNTA));
+		  this.updateSql(String.format(SQL_INSERT, Tema.TABLE, Tema.DESCRIPCION, Tema.PREGUNTA, tema.getDescripcion(), tema.getPregunta()));
 		  tema.setId(this.autoId());
 		}
 
@@ -62,9 +62,14 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 		List<Tema> lista = new ArrayList<Tema>();
 		ResultSet resultSet=this.query(String.format(SQL_SELECT_ALL, Tema.TABLE));
 		Tema tema = this.create(resultSet);
-		while(resultSet!=null){
-			lista.add(tema);
-			tema= this.create(resultSet);
+		try {
+			while(resultSet.next()){
+				lista.add(tema);
+				tema= this.create(resultSet);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return lista;
 	}

@@ -30,7 +30,8 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 			  int vv = resultSet.getInt(Voto.NIVEL_ESTUDIO); 
 			 NivelEstudio[] ne = NivelEstudio.values();
 			 NivelEstudio ne2= ne[vv];
-			 voto= new Voto(resultSet.getInt(Voto.VALORACION),  ne2,resultSet.getString(Voto.IP), tema);	
+			 voto= new Voto(resultSet.getInt(Voto.VALORACION),  ne2,resultSet.getString(Voto.IP), tema);
+			 return voto;
 			}
 		} catch (SQLException e) {
 			log.error("read: " + e.getMessage());
@@ -74,10 +75,10 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
         return list;
 	}
 
-	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s,%s,%s) VALUES ('%s', %d, %d, %d)";
+	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s,%s,%s) VALUES ('%s', %s, %s, %s)";
 	@Override
 	public void create(Voto voto) {
-		this.updateSql(String.format(SQL_INSERT, Voto.TABLE, Voto.IP, Voto.NIVEL_ESTUDIO, Voto.VALORACION, voto.getIp(), voto.getNivelEstudio().ordinal(), voto.getValoracion(), voto.getTema().getId()));
+		this.updateSql(String.format(SQL_INSERT, Voto.TABLE, Voto.IP, Voto.NIVEL_ESTUDIO, Voto.VALORACION, Voto.TEMA_ID, voto.getIp(), voto.getNivelEstudio().ordinal(), voto.getValoracion(), voto.getTema().getId()));
 		 voto.setId(this.autoId());
 		
 	}
