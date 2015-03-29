@@ -103,7 +103,7 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		this.updateSql(String.format(SQL_DELETE_ID, Tema.TABLE, id));
 		
 	}
 
