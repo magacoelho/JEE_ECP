@@ -74,15 +74,16 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 			return String.format(SQL_CREATE_TABLE, Tema.TABLE, Tema.ID, Tema.DESCRIPCION, Tema.PREGUNTA );
 	}
 
+	
 	@Override
 	public void deleteVotosByTema(Tema tema) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	private static final String SQL_SELECT_ALL_VOTOS_BY_TEMAID = "SELECT * FROM %s WHERE %s=%d";
 	@Override
 	public List<Voto> findAllVotosbyTemaId(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
