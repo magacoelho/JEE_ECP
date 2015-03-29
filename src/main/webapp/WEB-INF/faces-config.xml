@@ -63,6 +63,30 @@
             <to-view-id>/ViewsJSF/verVotaciones.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+      <from-view-id>/ViewsJSF/preeliminar.xhtml</from-view-id>  
+        <navigation-case>
+            <from-action>#{preeliminarViewBean.process}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>eliminar</to-view-id>
+        </navigation-case>  
+        <!-- Por defecto -->
+        <navigation-case>
+            <to-view-id>/ViewsJSF/preeliminar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+      <from-view-id>/ViewsJSF/eliminar.xhtml</from-view-id>  
+        <navigation-case>
+            <from-action>#{preeliminarViewBean.process}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>home</to-view-id>
+        </navigation-case>  
+        <!-- Por defecto -->
+        <navigation-case>
+            <to-view-id>/ViewsJSF/eliminar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
  	<application>
 		<locale-config>
 			<default-locale>es</default-locale>
