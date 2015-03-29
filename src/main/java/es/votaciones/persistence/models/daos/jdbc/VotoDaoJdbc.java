@@ -85,8 +85,8 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	@Override
 	public Voto read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		 ResultSet resultSet = this.query(String.format(SQL_SELECT_ID, Voto.TABLE, id));
+		    return this.create(resultSet);
 	}
 
 
