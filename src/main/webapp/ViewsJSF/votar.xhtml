@@ -37,14 +37,18 @@
         </p:panelGrid>
        </p:carousel>
           <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
-          <h:outputText value="#{msgs.votoValoracion}"/>
-             <p:inputText value="#{votarViewBean.voto.valoracion}"/>
-             
+         	        <h:outputText value="#{msgs.votoValoracion}"/> 
+	       <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
+	        <h:inputHidden id="txt2" value="#{votarViewBean.voto.valoracion}" />
+			       <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="{value}"  minValue="0" maxValue="10" step="1" />
+			       <h:outputText id="output" value="#{votarViewBean.voto.valoracion}" />
+	         </p:panelGrid>
             <p:outputLabel for="nivel" value="#{msgs.nivelEstudio}"/>
                   <p:selectOneMenu id="nivel" value="#{votarViewBean.voto.nivelEstudio}" effect="fold" editable="false">
                         <f:selectItems value="#{votarViewBean.nivelesEstudio}" />
                  </p:selectOneMenu>
           </p:panelGrid> 
+	       
      </h:form>  
         
 
