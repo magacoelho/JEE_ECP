@@ -91,9 +91,12 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	private static final String SQL_UPDATE = "UPDATE %s SET %s='%s', %s=%d,%s=%d, %s=%d  WHERE ID=%d";
 	@Override
-	public void update(Voto entity) {
-		this.updateSql(String.format(SQL_UPDATE, Tema.TABLE, Tema.DESCRIPCION, tema.getDescripcion(),
-				Tema.PREGUNTA, tema.getPregunta(), Tema.ID, tema.getId()));
+	public void update(Voto voto) {
+		this.updateSql(String.format(SQL_UPDATE, Voto.TABLE, 
+				Voto.IP, voto.getIp(),
+				Voto.NIVEL_ESTUDIO, voto.getNivelEstudio().ordinal(), 
+				Voto.VALORACION, voto.getValoracion(), 
+				Voto.TEMA_ID, voto.getTema().getId(), Voto.ID, voto.getId()));
 		
 	}
 
