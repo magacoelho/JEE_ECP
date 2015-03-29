@@ -6,7 +6,6 @@
     version="2.2">
 
 	<navigation-rule>
-	    
 		<from-view-id>/ViewsJSF/home.xhtml</from-view-id>
 		<navigation-case>
             <from-outcome>home</from-outcome>
@@ -38,7 +37,22 @@
             <to-view-id>/ViewsJSF/home.xhtml</to-view-id>
         </navigation-case>
 	</navigation-rule>
-	
+	<navigation-rule>
+      <from-view-id>/ViewsJSF/votar.xhtml</from-view-id>  
+        <navigation-case>
+            <from-action>#{votarViewBean.process}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>home</to-view-id>
+        </navigation-case>  
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/ViewsJSF/home.xhtml</to-view-id>
+        </navigation-case>
+        <!-- Por defecto -->
+        <navigation-case>
+            <to-view-id>/ViewsJSF/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 	<navigation-rule>
 	  <from-view-id>/ViewsJSF/agregar.xhtml</from-view-id>	
 		<navigation-case>
