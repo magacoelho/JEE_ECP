@@ -73,11 +73,13 @@ public class VotarViewBean extends ViewBean{
         LogManager.getLogger(VotarViewBean.class).debug(
                 "Se accede a la capa de negocio para registrar Voto: " + voto);
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        String ipAddress = request.getHeader("X-FORWARDED-FOR");
-        if (ipAddress == null) {
-            ipAddress = request.getRemoteAddr();
+        if(request!=null){
+	        String ipAddress = request.getHeader("X-FORWARDED-FOR");
+	        if (ipAddress == null) {
+	            ipAddress = request.getRemoteAddr();
+	        }
+	        this.voto.setIp(ipAddress);
         }
-        this.voto.setIp(ipAddress);
         VotarController votarController = this.getControllerFactory().getVotarController();
         votarController.votar(voto);
         // aqui se invocaria a la capa de Negocio...... osea 
