@@ -23,6 +23,8 @@
    <p>
         <a href="/JEE_ECP/jsp/home">Home jsp</a>
     </p>
-   
+   <p>
+        <a href="/JEE_ECP/">Home </a>
+    </p>
 </body>
 </html>

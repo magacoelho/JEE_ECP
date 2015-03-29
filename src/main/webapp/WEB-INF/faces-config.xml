@@ -24,7 +24,7 @@
 			<to-view-id>/ViewsJSF/verVotaciones.xhtml</to-view-id>
 		</navigation-case>
         <navigation-case>
-            <from-outcome>preeeliminar</from-outcome>
+            <from-outcome>preeliminar</from-outcome>
             <to-view-id>/ViewsJSF/preeliminar.xhtml</to-view-id>
         </navigation-case>
 		  <navigation-case>
@@ -83,9 +83,9 @@
     <navigation-rule>
       <from-view-id>/ViewsJSF/preeliminar.xhtml</from-view-id>  
         <navigation-case>
-            <from-action>#{preeliminarViewBean.process}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>eliminar</to-view-id>
+            
+            <from-outcome>eliminar</from-outcome>
+            <to-view-id>/ViewsJSF/eliminar.xhtm</to-view-id>
         </navigation-case>  
         <!-- Por defecto -->
          <navigation-case>

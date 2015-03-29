@@ -32,7 +32,7 @@ function ocultarMensaje() {
         </p>
     </form>
     <p id="mensaje">
-         
+       
       ${vView.mensaje}
             
     </p>        
