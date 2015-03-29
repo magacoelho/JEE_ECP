@@ -80,18 +80,5 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 		// TODO Auto-generated method stub
 		
 	}
-	private static final String SQL_SELECT_ALL_VOTOS_BY_TEMAID = "SELECT * FROM %s WHERE %s=%d";
-	@Override
-	public List<Voto> findAllVotosbyTemaId(Integer id) {
-		/*List<Voto> list = new ArrayList<Voto>();
-        ResultSet resultSet = this.query(String.format(SQL_SELECT_ALL_VOTOS_BY_TEMAID, Voto.TABLE, Voto.TEMA_ID, id));
-        Voto voto = super.create(resultSet);
-        while (voto != null) {
-            list.add(voto);
-            voto = this.create(resultSet);
-        }
-        return list;*/
-		return null;
-		}
-
+	
 }

@@ -21,7 +21,7 @@ public class VerVotacionesEjbController extends ListarTodosEjbController impleme
 		for (Tema tema : temas) {
 			VotosPorTema v= new VotosPorTema();
 			v.setTema(tema);
-			v.setSuma(DaoFactory.getFactory().getTemaDao().findAllVotosbyTemaId(tema.getId()).size());
+			v.setSuma(DaoFactory.getFactory().getVotoDao().findAllVotosbyTemaId(tema.getId()).size());
 			votosPorTema.add(v);
 		}
 		return votosPorTema;

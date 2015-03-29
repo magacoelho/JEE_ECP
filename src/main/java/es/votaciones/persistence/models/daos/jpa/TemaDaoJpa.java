@@ -24,7 +24,7 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 	@Override
 	public void deleteVotosByTema(Tema tema) {
 		EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
-   		List<Voto> votos= findAllVotosbyTemaId(tema.getId());
+		List<Voto> votos=DaoJpaFactory.getFactory().getVotoDao().findAllVotosbyTemaId(tema.getId());
    		try{
    		   entityManager.getTransaction().begin();
    		for (Voto voto : votos) {
@@ -48,34 +48,7 @@ public class TemaDaoJpa extends GenericDaoJpa<Tema, Integer> implements TemaDao 
 		
 
 
-	@Override
-	public List<Voto> findAllVotosbyTemaId(Integer id) {
-		 EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
-	        // Se crea un criterio de consulta
-	        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-	        CriteriaQuery<Voto> criteriaQuery = criteriaBuilder.createQuery(Voto.class);
-            Root<Tema> rootTema = criteriaQuery.from(Tema.class);
-	        // Se establece la clausula FROM
-            
-	        Root<Voto> rootVoto = criteriaQuery.from(Voto.class);
-
-	       
-	        criteriaQuery.select(rootVoto); // criteriaQuery.multiselect(root.get(atr))
-            
-	        Predicate predicate = criteriaBuilder.equal(rootTema, rootVoto.get("tema"));
-            Predicate predicate2 = criteriaBuilder.equal(rootTema.get("id"), id);
-            
-               
-	        // Se realiza la query
-	        criteriaQuery.where(criteriaBuilder.and(predicate,predicate2));
-	        
-	        TypedQuery<Voto> typedQuery = entityManager.createQuery(criteriaQuery);
-	        typedQuery.setFirstResult(0); // El primero es 0
-	        typedQuery.setMaxResults(0); // Se realiza la query, se buscan todos
-	        List<Voto> result = typedQuery.getResultList();
-	        entityManager.close();
-	        return result;
-	}
+	
    @Override
    public void deleteById(Integer id) {
 	   EntityManager entityManager = DaoJpaFactory.getEntityManagerFactory().createEntityManager();
