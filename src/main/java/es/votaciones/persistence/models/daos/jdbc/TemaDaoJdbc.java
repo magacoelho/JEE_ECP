@@ -51,6 +51,9 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 
 	@Override
 	public void deleteById(Integer id) {
+		Tema tema = new Tema();
+		tema.setId(id);
+		this.deleteVotosByTema(tema);
 		this.updateSql(String.format(SQL_DELETE_ID, Tema.TABLE, id));
 	}
 
@@ -74,10 +77,10 @@ public class TemaDaoJdbc extends GenericDaoJdbc<Tema, Integer> implements TemaDa
 			return String.format(SQL_CREATE_TABLE, Tema.TABLE, Tema.ID, Tema.DESCRIPCION, Tema.PREGUNTA );
 	}
 
-	
+	private static final String SQL_DELETE_VOTOS_BY_TEMA = "DELETE FROM %s WHERE %s=%d";
 	@Override
 	public void deleteVotosByTema(Tema tema) {
-		// TODO Auto-generated method stub
+		this.updateSql(String.format(SQL_DELETE_VOTOS_BY_TEMA, Voto.TABLE, Voto.TEMA_ID, tema.getId()));
 		
 	}
 	
