@@ -3,12 +3,6 @@ package es.votaciones.persistence.models.daos.jpa;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-
 import org.apache.logging.log4j.LogManager;
 
 import es.votaciones.persistence.models.daos.TemaDao;
