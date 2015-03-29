@@ -61,14 +61,20 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 				Voto.TEMA_ID, Tema.TABLE);
 	}
 
-	
+	 private static final String SQL_SELECT_NIVEL_ESTUDIOS = "SELECT * FROM %s WHERE nivelEstudio=%d";
 	@Override
 	public List<Voto> votosPorNivel(NivelEstudio nivelEstudio) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Voto> list = new ArrayList<Voto>();
+        ResultSet resultSet = this.query(String.format(SQL_SELECT_NIVEL_ESTUDIOS, Voto.TABLE, nivelEstudio.ordinal()));
+        Voto voto = this.create(resultSet);
+        while (voto != null) {
+            list.add(voto);
+            voto = this.create(resultSet);
+        }
+        return list;
 	}
 
-
+	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s) VALUES ('%s','%s')";
 	@Override
 	public void create(Voto entity) {
 		// TODO Auto-generated method stub
