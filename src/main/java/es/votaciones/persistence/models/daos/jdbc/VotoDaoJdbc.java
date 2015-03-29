@@ -74,10 +74,11 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
         return list;
 	}
 
-	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s) VALUES ('%s','%s')";
+	private static final String SQL_INSERT = "INSERT INTO %s (%s,%s,%s,%s) VALUES ('%s', %d, %d, %d)";
 	@Override
 	public void create(Voto entity) {
-		// TODO Auto-generated method stub
+		this.updateSql(String.format(SQL_INSERT, Tema.TABLE, Tema.DESCRIPCION, Tema.PREGUNTA));
+		  tema.setId(this.autoId());
 		
 	}
 
